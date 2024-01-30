@@ -17,11 +17,11 @@ public class User {
 	
 	@ManyToMany(fetch=FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinTable(
-			name = "user_roles",
+			name = "custom_user_roles",
 			joinColumns = @JoinColumn(
 					name = "custom_user_id", referencedColumnName = "id"),
 			inverseJoinColumns = @JoinColumn(
-					name = "role_id",referencedColumnName = "id"))
+					name = "custom_role_id",referencedColumnName = "id"))
 	private Collection<Role> roles;
 	
 	public User(String name, String email, String password, Collection<Role> roles) {

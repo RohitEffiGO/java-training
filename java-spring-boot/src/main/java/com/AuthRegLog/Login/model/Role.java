@@ -3,13 +3,18 @@ package com.AuthRegLog.Login.model;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name="role")
+@Table(name="custom_role")
 public class Role {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String name;
+	
+	public Role(String name) {
+		super();
+		this.name = name;
+	}
 	public Long getId() {
 		return id;
 	}
