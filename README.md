@@ -1,5 +1,5 @@
-#This repo is all about core java conecepts and a java project made with Spring boot.
-##The java project is based on Spring boot combining spring security with JWT for stateless authentication.
+# This repo is all about core java conecepts and a java project made with Spring boot.<br>
+### The java project is based on Spring boot combining spring security with JWT for stateless authentication.
 The project provides three API's:
 
 <table>
