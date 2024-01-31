@@ -12,6 +12,8 @@ public class User {
 	private Long id;
 	
 	private String name;
+	
+	@Column(unique = true)
 	private String email;
 	private String password;
 	
@@ -30,6 +32,18 @@ public class User {
 		this.email = email;
 		this.password = password;
 		this.roles = roles;
+	}
+	
+	public User(String email,String password)
+	{
+		super();
+		this.email = email;
+		this.password = password;
+	}
+	
+	public User()
+	{
+		
 	}
 	
 	public long getId() {

@@ -4,7 +4,6 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.AuthRegLog.Login.model.Role;
@@ -19,12 +18,10 @@ public class UserServiceImpl implements UserService{
 	private UserRepository repo;
 	
 	private UserRepository userRepo;
-	private PasswordEncoder passwordEncoder;
 	
-	public UserServiceImpl(UserRepository userRepo, PasswordEncoder passwordEncoder) {
+	public UserServiceImpl(UserRepository userRepo) {
 		super();
 		this.userRepo = userRepo;
-		this.passwordEncoder = passwordEncoder;
 	}
 
 
@@ -35,7 +32,7 @@ public class UserServiceImpl implements UserService{
 		User user = new User(
 				regDto.getName(),
 				regDto.getEmail(),
-				passwordEncoder.encode(regDto.getPassword()),
+				regDto.getPassword(),
 				arr);
 		return userRepo.save(user);
 	}
