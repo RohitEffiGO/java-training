@@ -3,8 +3,10 @@ package com.AuthRegLog.Login.web;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,6 +28,20 @@ public class UserRegController {
 		this.userService = userService;
 	}
 
+	@GetMapping("/all")
+	public Map<Long, Map<String,String>> getAllUsers() {
+		Map<Long, Map<String,String>> getUserByName = new HashMap<>();
+
+		for (User user : userService.getAll()) {
+			Map<String,String> temp = new HashMap<>();
+			temp.put("Name",user.getName());
+			temp.put("Email",user.getEmail());
+			getUserByName.put(user.getId(), temp);
+		}
+		
+		return getUserByName;
+	}
+
 	@PostMapping("/register")
 	public ResponseEntity<Map<String, String>> regUserAcc(@RequestBody UserRegDto regDto) {
 		Map<String, String> message = new HashMap<>();
@@ -39,8 +55,11 @@ public class UserRegController {
 			userService.save(regDto);
 			message.put("Message", "User registered successfully.");
 			return new ResponseEntity<>(message, HttpStatus.OK);
+		} catch (DataIntegrityViolationException e) {
+			message.put("Message", "Email already exists.");
+			return new ResponseEntity<>(message, HttpStatus.FORBIDDEN);
 		} catch (Exception e) {
-			message.put("Message:", "Some error occured.");
+			message.put("Error", e.toString());
 			return new ResponseEntity<>(message, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
@@ -57,10 +76,10 @@ public class UserRegController {
 				message.put("Message", "Successfully logged in");
 				return new ResponseEntity<>(message, HttpStatus.OK);
 			}
-			
+
 			message.put("Message", "User Creds does not match.");
-			return new ResponseEntity<>(message,HttpStatus.FORBIDDEN);
-					
+			return new ResponseEntity<>(message, HttpStatus.FORBIDDEN);
+
 		} catch (Exception e) {
 			message.put("Message:", "Some error occured." + e);
 			return new ResponseEntity<>(message, HttpStatus.INTERNAL_SERVER_ERROR);

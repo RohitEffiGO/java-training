@@ -13,32 +13,31 @@ import com.AuthRegLog.Login.web.dto.UserLogDto;
 import com.AuthRegLog.Login.web.dto.UserRegDto;
 
 @Service
-public class UserServiceImpl implements UserService{
+public class UserServiceImpl implements UserService {
 	@Autowired
 	private UserRepository repo;
-	
+
 	private UserRepository userRepo;
-	
+
 	public UserServiceImpl(UserRepository userRepo) {
 		super();
 		this.userRepo = userRepo;
 	}
 
-
 	@Override
-	public User save(UserRegDto regDto)
-	{
+	public User save(UserRegDto regDto) {
 		List<Role> arr = Arrays.asList(new Role("USER"));
-		User user = new User(
-				regDto.getName(),
-				regDto.getEmail(),
-				regDto.getPassword(),
-				arr);
+		User user = new User(regDto.getName(), regDto.getEmail(), regDto.getPassword(), arr);
 		return userRepo.save(user);
 	}
-	
+
 	@Override
 	public User get(UserLogDto logDto) {
 		return repo.findByEmail(logDto.getEmail());
+	}
+
+	@Override
+	public List<User> getAll() {
+		return userRepo.findAll();
 	}
 }
