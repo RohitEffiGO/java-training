@@ -1,5 +1,63 @@
-# This repo is all about core java conecepts and a java project made with Spring boot.<br>
-### The java project is based on Spring boot combining spring security with JWT for stateless authentication.
+# This repo is all about core java concepts and a java project made with Spring boot.<br>
+## The java core covers these topics.
+<table>
+    <thead>
+        <tr>
+            <th>Java Concept</th>
+            <th>Class Name/Classes Used</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Hashcode/Equals/Sorting Objects</td>
+            <td><code>Person</code> class</td>
+            <td>Demonstrates the implementation of <code>hashCode()</code>, <code>equals()</code>, and sorting objects based on a custom criterion.</td>
+        </tr>
+        <tr>
+            <td>Collections/List/Set/Map</td>
+            <td><code>ArrayList</code>, <code>HashSet</code>, <code>HashMap</code></td>
+            <td>Examples of using Java collections: list, set, and map.</td>
+        </tr>
+        <tr>
+            <td>Working with Files</td>
+            <td><code>FileInputStream</code>, <code>FileOutputStream</code></td>
+            <td>Illustrates reading and writing to files using traditional file I/O.</td>
+        </tr>
+        <tr>
+            <td>Date Conversions</td>
+            <td><code>DateTimeFormatter</code>, <code>ZonedDateTime</code></td>
+            <td>Converts user input date strings, performs various date conversions, and manipulations.</td>
+        </tr>
+        <tr>
+            <td>Threads/Executor Service</td>
+            <td><code>ExecutorService</code>, <code>Runnable</code></td>
+            <td>Demonstrates basic usage of threads and the ExecutorService for concurrent execution of tasks.</td>
+        </tr>
+        <tr>
+            <td>Encoding/Decoding</td>
+            <td><code>Base64</code></td>
+            <td>Examples of encoding and decoding using Base64 encoding.</td>
+        </tr>
+        <tr>
+            <td>Encryption/Decryption</td>
+            <td><code>Cipher</code>, <code>SecretKey</code></td>
+            <td>Illustrates encryption and decryption using the AES algorithm.</td>
+        </tr>
+        <tr>
+            <td>Date Conversion Assignment 1</td>
+            <td><code>DateTimeFormatter</code>, <code>ZonedDateTime</code></td>
+            <td>Converts user input date string to Unix Timestamp, UTC, and back from UTC to local timestamp (IST).</td>
+        </tr>
+        <tr>
+            <td>Date Conversion Assignment 2</td>
+            <td><code>DateTimeFormatter</code>, <code>LocalDateTime</code></td>
+            <td>Performs date manipulations such as adding/subtracting days and hours, and sorting objects based on timestamps.</td>
+        </tr>
+    </tbody>
+</table>
+
+## The java project is based on Spring boot combining spring security with JWT for stateless authentication.
 The project provides three API's:
 
 <table>
