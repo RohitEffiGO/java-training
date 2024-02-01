@@ -1,4 +1,4 @@
-# This repo is all about core java concepts and a java project made with Spring boot.<br>
+# This repository is all about core java concepts and a java project made with Spring boot.<br>
 ## The java core covers these topics.
 <table>
     <thead>
