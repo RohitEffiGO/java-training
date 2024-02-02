@@ -1,5 +1,5 @@
-# This repo is all about core java concepts and a java project made with Spring boot.<br>
-## The java core covers these topics.
+# This repository is all about core java concepts and a java project made with Spring boot.<br>
+## <i>The java core covers these topics</i>
 <table>
     <thead>
         <tr>
@@ -57,7 +57,7 @@
     </tbody>
 </table>
 
-## The java project is based on Spring boot combining spring security with JWT for stateless authentication.
+## <i>The java project is based on Spring boot</i>
 The project provides three API's:
 
 <table>
@@ -78,3 +78,7 @@ The project provides three API's:
         <td>Endpoint for accessing all resources</td>
     </tr>
 </table>
+<p>Things to be added</p>
+<li>
+    <ul>JWT authentication</ul>
+</li>
