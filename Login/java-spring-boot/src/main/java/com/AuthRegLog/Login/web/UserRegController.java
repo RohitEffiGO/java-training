@@ -1,9 +1,10 @@
 package com.AuthRegLog.Login.web;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
-import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,77 +13,79 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.AuthRegLog.Login.MapStruct.Dto.UserLogDto;
+import com.AuthRegLog.Login.MapStruct.Dto.UserRegDto;
+import com.AuthRegLog.Login.MapStruct.Mapper.MapStructMapper;
 import com.AuthRegLog.Login.model.User;
-import com.AuthRegLog.Login.service.UserService;
-import com.AuthRegLog.Login.web.dto.UserLogDto;
-import com.AuthRegLog.Login.web.dto.UserRegDto;
+import com.AuthRegLog.Login.repository.UserRepository;
+
+import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/api/auth")
 public class UserRegController {
 
-	private UserService userService;
+	@Autowired
+	private MapStructMapper mapstructMapper;
 
-	public UserRegController(UserService userService) {
-		super();
-		this.userService = userService;
+	private UserRepository userRepository;
+
+	public UserRegController(MapStructMapper mapStructMapper, UserRepository userRepository) {
+		this.mapstructMapper = mapStructMapper;
+		this.userRepository = userRepository;
 	}
 
 	@GetMapping("/all")
-	public Map<Long, Map<String,String>> getAllUsers() {
-		Map<Long, Map<String,String>> getUserByName = new HashMap<>();
+	public Map<Long, Map<String, String>> getAllUsers() {
+		Map<Long, Map<String, String>> getUserByName = new HashMap<>();
 
-		for (User user : userService.getAll()) {
-			Map<String,String> temp = new HashMap<>();
-			temp.put("Name",user.getName());
-			temp.put("Email",user.getEmail());
-			getUserByName.put(user.getId(), temp);
+		List<User> allUsers = userRepository.findAll();
+
+		Long i = 0L;
+		for (User user : allUsers) {
+			UserRegDto userDto = mapstructMapper.userToUserDto(user);
+			Map<String, String> temp = new HashMap<>();
+			temp.put("Name", userDto.getName());
+			temp.put("Email", userDto.getEmail());
+			getUserByName.put(i++, temp);
 		}
-		
+
 		return getUserByName;
 	}
 
 	@PostMapping("/register")
-	public ResponseEntity<Map<String, String>> regUserAcc(@RequestBody UserRegDto regDto) {
+	public ResponseEntity<Map<?, ?>> regUserAcc(@Valid @RequestBody UserRegDto regDto) {
 		Map<String, String> message = new HashMap<>();
-
-		if (regDto.getEmail() == null || regDto.getName() == null || regDto.getPassword() == null) {
-			message.put("Message", "Field Error");
-			return new ResponseEntity<>(message, HttpStatus.BAD_REQUEST);
-		}
-
-		try {
-			userService.save(regDto);
-			message.put("Message", "User registered successfully.");
-			return new ResponseEntity<>(message, HttpStatus.OK);
-		} catch (DataIntegrityViolationException e) {
-			message.put("Message", "Email already exists.");
-			return new ResponseEntity<>(message, HttpStatus.FORBIDDEN);
-		} catch (Exception e) {
-			message.put("Error", e.toString());
-			return new ResponseEntity<>(message, HttpStatus.INTERNAL_SERVER_ERROR);
-		}
+		userRepository.save(mapstructMapper.userRegDtoToUser(regDto));
+		message.put("Message", "User successfully registered.");
+		return new ResponseEntity<>(message, HttpStatus.OK);
 	}
 
 	@PostMapping("/login")
-	public ResponseEntity<Map<String, String>> logUserAcc(@RequestBody UserLogDto logDto) {
+	public ResponseEntity<Map<String, String>> logUserAcc(@Valid @RequestBody UserLogDto logDto) {
 		Map<String, String> message = new HashMap<>();
 
 		try {
-			User userDetials = userService.get(logDto);
-			String pass_val = userDetials.getPassword();
+			User user = userRepository.findByEmail(logDto.getEmail());
 
-			if (pass_val.equals(logDto.getPassword())) {
-				message.put("Message", "Successfully logged in");
-				return new ResponseEntity<>(message, HttpStatus.OK);
+			if (user == null) {
+				message.put("Message", "User does not exists.");
+				return new ResponseEntity<>(message, HttpStatus.FORBIDDEN);
 			}
 
-			message.put("Message", "User Creds does not match.");
-			return new ResponseEntity<>(message, HttpStatus.FORBIDDEN);
+			UserRegDto userDetails = mapstructMapper.userToUserDto(user);
+
+			if (!userDetails.getPassword().equals(logDto.getPassword())) {
+				message.put("Message", "User credentials wrong.");
+				return new ResponseEntity<>(message, HttpStatus.FORBIDDEN);
+			}
 
 		} catch (Exception e) {
-			message.put("Message:", "Some error occured." + e);
+
+			message.put("Error", e.toString());
 			return new ResponseEntity<>(message, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
+		message.put("Message", "User successfully logged in.");
+		return new ResponseEntity<>(message, HttpStatus.OK);
 	}
 }
