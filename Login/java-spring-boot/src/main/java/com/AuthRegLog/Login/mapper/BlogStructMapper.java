@@ -1,9 +1,9 @@
-package com.AuthRegLog.Login.MapStruct.Mapper;
+package com.AuthRegLog.Login.mapper;
 
 import org.mapstruct.Mapper;
 
-import com.AuthRegLog.Login.MapStruct.Dto.BlogFindDto;
-import com.AuthRegLog.Login.MapStruct.Dto.BlogSaveDto;
+import com.AuthRegLog.Login.dto.BlogFindDto;
+import com.AuthRegLog.Login.dto.BlogSaveDto;
 import com.AuthRegLog.Login.model.Blog;
 
 @Mapper(componentModel = "spring")

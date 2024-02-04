@@ -1,4 +1,4 @@
-package com.AuthRegLog.Login.web;
+package com.AuthRegLog.Login.controller;
 
 import java.util.HashMap;
 import java.util.List;
@@ -13,9 +13,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.AuthRegLog.Login.MapStruct.Dto.UserLogDto;
-import com.AuthRegLog.Login.MapStruct.Dto.UserRegDto;
-import com.AuthRegLog.Login.MapStruct.Mapper.MapStructMapper;
+import com.AuthRegLog.Login.dto.UserLogDto;
+import com.AuthRegLog.Login.dto.UserRegDto;
+import com.AuthRegLog.Login.mapper.MapStructMapper;
 import com.AuthRegLog.Login.model.User;
 import com.AuthRegLog.Login.repository.UserRepository;
 

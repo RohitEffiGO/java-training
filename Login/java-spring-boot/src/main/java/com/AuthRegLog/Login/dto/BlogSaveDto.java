@@ -1,4 +1,4 @@
-package com.AuthRegLog.Login.MapStruct.Dto;
+package com.AuthRegLog.Login.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 

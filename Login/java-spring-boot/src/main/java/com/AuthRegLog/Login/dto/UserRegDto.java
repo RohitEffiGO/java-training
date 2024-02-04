@@ -1,6 +1,4 @@
-package com.AuthRegLog.Login.MapStruct.Dto;
-
-import java.util.List;
+package com.AuthRegLog.Login.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -8,21 +6,26 @@ import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
 
-@Getter
-@Setter
-public class UserAllDto {
-	@NotNull
+public class UserRegDto {
+	@Getter
 	@JsonProperty("id")
 	private Long id;
 
-	@NotNull
+	@Getter
+	@Setter
 	@JsonProperty("name")
 	private String name;
 
+	@Getter
+	@Setter
 	@NotNull
 	@JsonProperty("email")
 	private String email;
 
-	@JsonProperty("roles")
-	private List<RoleDto> roles;
+	@Getter
+	@Setter
+	@NotNull
+	@JsonProperty("password")
+	private String password;
+
 }

@@ -1,13 +1,11 @@
-package com.AuthRegLog.Login.MapStruct.Dto;
+package com.AuthRegLog.Login.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import jakarta.validation.constraints.NotNull;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
-@Getter
-@Setter
+@Data
 public class UserLogDto {
 
 	@NotNull

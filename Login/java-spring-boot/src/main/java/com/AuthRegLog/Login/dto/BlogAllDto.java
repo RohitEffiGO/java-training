@@ -1,15 +1,13 @@
-package com.AuthRegLog.Login.MapStruct.Dto;
+package com.AuthRegLog.Login.dto;
 
 import java.util.List;
 
 import com.AuthRegLog.Login.model.Blog;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
-@Getter
-@Setter
+@Data
 public class BlogAllDto {
 	@JsonProperty
 	private List<Blog> allBlogs;
