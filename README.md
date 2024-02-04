@@ -77,6 +77,26 @@ The project provides three API's:
         <td>/api/auth/all</td>
         <td>Endpoint for accessing all resources</td>
     </tr>
+    <tr>
+    <td>/api/blog/get</td>
+    <td>Retrieve all blog posts</td>
+  </tr>
+  <tr>
+    <td>/api/blog/get/{id}</td>
+    <td>Retrieve a specific blog post by ID</td>
+  </tr>
+  <tr>
+    <td>/api/blog/update/{id}</td>
+    <td>Update a specific blog post by ID</td>
+  </tr>
+  <tr>
+    <td>/api/blog/delete/{id}</td>
+    <td>Delete a specific blog post by ID</td>
+  </tr>
+  <tr>
+    <td>/api/blog/save</td>
+    <td>Save a new blog post</td>
+  </tr>
 </table>
 <p>Things to be added</p>
 <ul>
