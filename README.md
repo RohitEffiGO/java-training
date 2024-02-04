@@ -102,3 +102,6 @@ The project provides three API's:
 <ul>
     <li>JWT authentication</li>
 </ul>
+
+## Sel-Java
+In this project some automated test cases are written using selenium in which normal operations are being performed using the framework.
