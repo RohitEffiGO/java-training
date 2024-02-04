@@ -81,6 +81,4 @@ The project provides three API's:
 <p>Things to be added</p>
 <ul>
     <li>JWT authentication</li>
-    <li>Blog model</li>
-    <li>CRUD on blog model</li>
 </ul>
