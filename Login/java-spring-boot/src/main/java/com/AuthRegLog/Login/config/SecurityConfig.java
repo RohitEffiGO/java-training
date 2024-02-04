@@ -11,8 +11,9 @@ import org.springframework.security.web.SecurityFilterChain;
 public class SecurityConfig {
 	@Bean
 	protected SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-		http.csrf(csrf -> csrf.disable()).authorizeHttpRequests(
-				requests -> requests.requestMatchers("/api/auth/login", "/api/auth/register", "/api/auth/all")
+		http.csrf(csrf -> csrf.disable())
+				.authorizeHttpRequests(requests -> requests
+						.requestMatchers("/api/auth/login", "/api/auth/register", "/api/auth/all", "/api/blog/**")
 						.permitAll().anyRequest().authenticated());
 		return http.build();
 	}
