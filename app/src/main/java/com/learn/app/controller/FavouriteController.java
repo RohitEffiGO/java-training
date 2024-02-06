@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.learn.app.dto.MakeFavDto;
+import com.learn.app.dto.UserFavDto;
 import com.learn.app.service.FavouriteService;
 
 import jakarta.validation.Valid;
@@ -23,4 +24,13 @@ public class FavouriteController {
 		return favService.makeFavourite(makeFavDto);
 	}
 
+	@PostMapping("/remove")
+	public ResponseEntity<?> postRemoveFav(@Valid @RequestBody MakeFavDto makeUnFavDto) {
+		return favService.makeUnFavourite(makeUnFavDto);
+	}
+
+	@PostMapping("/all")
+	public ResponseEntity<?> postAllFav(@Valid @RequestBody UserFavDto userFavDto) {
+		return favService.getAllFav(userFavDto);
+	}
 }
