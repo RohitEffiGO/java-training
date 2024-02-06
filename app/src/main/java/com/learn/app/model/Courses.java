@@ -19,6 +19,6 @@ public class Courses {
 	@Column(name = "name")
 	String courseName;
 
-	@Column(name = "type_id")
-	String typeID;
+	@Column(name = "author")
+	String authorID;
 }
