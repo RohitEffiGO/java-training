@@ -6,6 +6,6 @@ import lombok.Data;
 
 @Data
 public class AddCategoryDto {
-	@JsonProperty("type")
+	@JsonProperty("category_name")
 	private String categoryType;
 }
