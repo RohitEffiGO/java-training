@@ -181,8 +181,10 @@ A basic learning app allows user to access courses and allows author's to post c
   </tbody>
 </table>
 <br>
-### Database Schema:
-![image](https://github.com/RohitEffiGO/java-training/assets/157448382/aabbc9eb-ed44-4644-9158-3bff0bbc9296)
+Database Schema:<br>
+
+![image](https://github.com/RohitEffiGO/java-training/assets/157448382/a3529a42-465f-4f57-af8a-1d4d0f69c11f)
+
 
 Things to add:
 <ul>
