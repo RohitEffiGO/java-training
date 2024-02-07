@@ -1,5 +1,7 @@
 package com.learn.app.model;
 
+import java.time.LocalDate;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -21,4 +23,7 @@ public class Courses {
 
 	@Column(name = "author")
 	String authorID;
+
+	@Column(name = "date_added")
+	LocalDate dateAdded;
 }

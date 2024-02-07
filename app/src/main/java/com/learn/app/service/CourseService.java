@@ -1,5 +1,6 @@
 package com.learn.app.service;
 
+import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -47,6 +48,7 @@ public class CourseService {
 		Category category = categoryObj.get();
 
 		Courses course = ccMapper.addCourseDtoToCourses(courseDto);
+		course.setDateAdded(LocalDate.now());
 
 		CoursesCategory ccObj = new CoursesCategory();
 		ccObj.setCategory(category);
