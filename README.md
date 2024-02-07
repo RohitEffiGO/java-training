@@ -105,3 +105,84 @@ The project provides three API's:
 
 ## Sel-Java
 In this project some automated test cases are written using selenium in which normal operations are being performed using the framework.
+
+## Learning-App
+A basic learning app allows user to access courses and allows author's to post courses in various categories.
+<table>
+  <thead>
+    <tr>
+      <th>Endpoint</th>
+      <th>RequestType</th>
+      <th>Request body</th>
+      <th>API description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>api/auth/login</td>
+      <td>POST</td>
+      <td>email, password</td>
+      <td>User login</td>
+    </tr>
+    <tr>
+      <td>api/auth/register</td>
+      <td>POST</td>
+      <td>email, password, name</td>
+      <td>User registration</td>
+    </tr>
+    <tr>
+      <td>api/category/add</td>
+      <td>POST</td>
+      <td>category_name</td>
+      <td>Add a new category</td>
+    </tr>
+    <tr>
+      <td>api/category/all</td>
+      <td>GET</td>
+      <td></td>
+      <td>Get all categories</td>
+    </tr>
+    <tr>
+      <td>api/course/add</td>
+      <td>POST</td>
+      <td>name, category</td>
+      <td>Add a new course</td>
+    </tr>
+    <tr>
+      <td>api/course/fetch</td>
+      <td>POST</td>
+      <td>category</td>
+      <td>Fetch courses by category</td>
+    </tr>
+    <tr>
+      <td>api/course/fetch/{id}</td>
+      <td>POST</td>
+      <td>category</td>
+      <td>Fetch a specific course by ID</td>
+    </tr>
+    <tr>
+      <td>api/fav/make</td>
+      <td>POST</td>
+      <td>email, course_id</td>
+      <td>Add a course to favorites</td>
+    </tr>
+    <tr>
+      <td>api/fav/remove</td>
+      <td>POST</td>
+      <td>email, course_id</td>
+      <td>Remove a course from favorites</td>
+    </tr>
+    <tr>
+      <td>api/fav/all</td>
+      <td>POST</td>
+      <td>email</td>
+      <td>Get all favorite courses for a user</td>
+    </tr>
+  </tbody>
+</table>
+Things to add:
+<ul>
+    <li>JWT authentication</li>
+    <li>JWT based role filter</li>
+    <li>Comments in code</li>
+</ul>
