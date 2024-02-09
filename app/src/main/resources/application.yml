@@ -1,13 +1,18 @@
 spring:
-  datasource:
-    driver-class-name: org.postgresql.Driver
-    password: root
-    url: jdbc:postgresql://localhost:5432/learning
-    username: postgres
-  jpa:
-    hibernate:
-      ddl-auto: update
-    properties:
+   datasource:
+      driver-class-name: org.postgresql.Driver
+      password: root
+      url: jdbc:postgresql://localhost:5432/learning
+      username: postgres
+   jpa:
       hibernate:
-        dialect: org.hibernate.dialect.PostgreSQLDialect
-    show-sql: true
+         ddl-auto: update
+      properties:
+         hibernate:
+            dialect: org.hibernate.dialect.PostgreSQLDialect
+      show-sql: true
+   main:
+      allow-circular-references: true
+         
+secret: 45aa7115dad9c13f30f12495a8256db791d64214a2f2ca038691e0be1e63c00e
+   
