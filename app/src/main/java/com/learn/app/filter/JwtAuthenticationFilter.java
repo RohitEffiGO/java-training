@@ -13,6 +13,7 @@ import org.springframework.web.filter.OncePerRequestFilter;
 import com.learn.app.service.JwtService;
 import com.learn.app.service.UserService;
 
+import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.security.SignatureException;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
@@ -37,16 +38,20 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
 		String authHeader = request.getHeader("Authorization");
 		/**
-		 * if no header is provided basically login or register then do this
+		 * if no header is provided basically login or register then do this or to
+		 * access basic elements no token is necessary.
 		 */
 
 		String userUrl = request.getRequestURL().toString();
-		String[] url = { "http://localhost:8080/api/auth/register", "http://localhost:8080/api/auth/login" };
+		String[] urls = { "http://localhost:8080/api/auth/register", "http://localhost:8080/api/auth/login",
+				"http://localhost:8080/api/category/all" };
 
 		if (authHeader == null || !authHeader.startsWith("Bearer ")) {
-			if (userUrl.equals(url[0]) || userUrl.equals(url[1])) {
-				filterChain.doFilter(request, response);
-				return;
+			for (String url : urls) {
+				if (url.equals(userUrl)) {
+					filterChain.doFilter(request, response);
+					return;
+				}
 			}
 			response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
 			response.setContentType("application/json");
@@ -63,7 +68,14 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 			response.setContentType("application/json");
 			response.getWriter().write("{\"error\": \"" + "Invalid JWT token" + "\"}");
 			return;
+		} catch (ExpiredJwtException exception) {
+			response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+			response.setContentType("application/json");
+			response.getWriter().write("{\"error\": \"" + "Token expired" + "\"}");
+			return;
 		}
+
+//		If everything is valid create a session and let user do its thing.
 		if (username != null && SecurityContextHolder.getContext().getAuthentication() == null) {
 			UserDetails userDetails = userService.loadUserByUsername(username);
 			if (jwtService.isValid(token, userDetails)) {

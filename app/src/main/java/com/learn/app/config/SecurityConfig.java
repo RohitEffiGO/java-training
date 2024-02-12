@@ -49,7 +49,7 @@ public class SecurityConfig {
 	public SecurityFilterChain adminSecurityFilterChain(HttpSecurity http) throws Exception {
 		return http.csrf(AbstractHttpConfigurer::disable)
 				.authorizeHttpRequests(
-						req -> req.requestMatchers("/api/category/**").hasRole("ADMIN").anyRequest().authenticated())
+						req -> req.requestMatchers("/api/course/**").hasRole("ADMIN").anyRequest().authenticated())
 				.userDetailsService(userDetailService)
 				.sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
 				.addFilterAfter(allowAdminFilter, UsernamePasswordAuthenticationFilter.class).build();

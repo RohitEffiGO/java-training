@@ -14,6 +14,8 @@ import com.learn.app.mapper.CourseStructMapper;
 import com.learn.app.model.Category;
 import com.learn.app.repository.CategoryRepository;
 
+import jakarta.validation.constraints.NotNull;
+
 @Component
 public class CategoryService {
 	@Autowired
@@ -22,8 +24,13 @@ public class CategoryService {
 	@Autowired
 	CourseStructMapper ccMapper;
 
-	public ResponseEntity<?> addCategory(AddCategoryDto addCategory) {
+	public ResponseEntity<?> addCategory(@NotNull AddCategoryDto addCategory) {
 		Map<String, String> response = new HashMap<>();
+
+		if (addCategory.getCategoryType() == null) {
+			response.put("error", "missing category field.");
+			return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
+		}
 
 		try {
 			Category categoryInit = ccMapper.addCategoryDtoToCategory(addCategory);
@@ -43,7 +50,7 @@ public class CategoryService {
 
 	public ResponseEntity<?> getCategory() {
 		Map<String, List<Category>> response = new HashMap<>();
-		response.put("Message", cateRepo.findAll());
+		response.put("category", cateRepo.findAll());
 		return new ResponseEntity<>(response, HttpStatus.ACCEPTED);
 	}
 }

@@ -35,7 +35,7 @@ public class CourseService {
 	@Autowired
 	CourseStructMapper ccMapper;
 
-	public ResponseEntity<?> addCourse(AddCourseDto courseDto) {
+	public ResponseEntity<Map<String, String>> addCourse(AddCourseDto courseDto) {
 		Map<String, String> response = new HashMap<>();
 
 		Optional<Category> categoryObj = cateRepo.findByCategoryType(courseDto.getCategory());

@@ -50,6 +50,10 @@ public class User implements UserDetails {
 	@JoinTable(name = "user_fav", joinColumns = @JoinColumn(name = "cust_user_id", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "courses_id", referencedColumnName = "id"))
 	private Set<Courses> fav = new HashSet<>();
 
+	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@JoinTable(name = "user_subscribed", joinColumns = @JoinColumn(name = "cust_user_id", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "course_id", referencedColumnName = "id"))
+	private Set<Courses> subscribed = new HashSet<>();
+
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		Set<SimpleGrantedAuthority> roleAuthority = new HashSet<>();

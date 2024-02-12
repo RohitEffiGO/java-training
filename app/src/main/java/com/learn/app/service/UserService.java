@@ -52,6 +52,11 @@ public class UserService implements UserDetailsService {
 
 		Optional<Role> defaultRole = roleRepo.findByRoleType("LEARNER");
 
+		if (defaultRole.isEmpty()) {
+			response.put("message", "Role does not exists.");
+			return new ResponseEntity<>(response, HttpStatus.CONFLICT);
+		}
+
 		Set<Role> roles = new HashSet<>();
 		roles.add(defaultRole.get());
 		registerUser.setRoles(roles);
