@@ -4,11 +4,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.learn.app.dto.MakeFavDto;
-import com.learn.app.dto.UserFavDto;
 import com.learn.app.service.FavouriteService;
 
 import jakarta.validation.Valid;
@@ -20,17 +20,20 @@ public class FavouriteController {
 	FavouriteService favService;
 
 	@PostMapping("/make")
-	public ResponseEntity<?> postMakeFav(@Valid @RequestBody MakeFavDto makeFavDto) {
-		return favService.makeFavourite(makeFavDto);
+	public ResponseEntity<?> postMakeFav(@RequestHeader(name = "Authorization") String header,
+			@Valid @RequestBody MakeFavDto makeFavDto) {
+		System.out.println(header);
+		return favService.makeFavourite(header, makeFavDto);
 	}
 
 	@PostMapping("/remove")
-	public ResponseEntity<?> postRemoveFav(@Valid @RequestBody MakeFavDto makeUnFavDto) {
-		return favService.makeUnFavourite(makeUnFavDto);
+	public ResponseEntity<?> postRemoveFav(@RequestHeader(name = "Authorization") String header,
+			@Valid @RequestBody MakeFavDto makeUnFavDto) {
+		return favService.makeUnFavourite(header, makeUnFavDto);
 	}
 
 	@PostMapping("/all")
-	public ResponseEntity<?> postAllFav(@Valid @RequestBody UserFavDto userFavDto) {
-		return favService.getAllFav(userFavDto);
+	public ResponseEntity<?> postAllFav(@RequestHeader(name = "Authorization") String header) {
+		return favService.getAllFav(header);
 	}
 }
