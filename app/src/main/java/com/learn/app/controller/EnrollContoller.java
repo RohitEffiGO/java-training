@@ -25,4 +25,14 @@ public class EnrollContoller {
 		return enrollService.enrollToUser(header, enrollDto);
 	}
 
+	@PostMapping("/subscribed")
+	public ResponseEntity<?> getCourses(@RequestHeader(name = "Authorization") String header) {
+		return enrollService.getSubscribed(header);
+	}
+
+	@PostMapping("/unsubscribe")
+	public ResponseEntity<?> unSubCourse(@RequestHeader(name = "Authorization") String header,
+			@RequestBody @Valid EnrollCourseDto unenrollDto) {
+		return enrollService.unEnrollToUser(header, unenrollDto);
+	}
 }
