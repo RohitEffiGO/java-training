@@ -188,7 +188,6 @@ Database Schema:<br>
 
 Things to add:
 <ul>
-    <li>JWT authentication</li>
-    <li>JWT based role filter</li>
     <li>Comments in code</li>
+    <li>Add junit test cases</li>
 </ul>
