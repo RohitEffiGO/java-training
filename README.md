@@ -178,6 +178,24 @@ A basic learning app allows user to access courses and allows author's to post c
       <td>email</td>
       <td>Get all favorite courses for a user</td>
     </tr>
+      <tr>
+      <td>api/enroll/subscribe</td>
+      <td>POST</td>
+      <td>course_id</td>
+      <td>Subscribe to a course</td>
+    </tr>
+    <tr>
+      <td>api/enroll/subscribed</td>
+      <td>POST</td>
+      <td></td>
+      <td>Get subscribed courses</td>
+    </tr>
+    <tr>
+      <td>api/enroll/unsubscribe</td>
+      <td>POST</td>
+      <td>course_id</td>
+      <td>Unsubscribe from a course</td>
+    </tr>
   </tbody>
 </table>
 <br>
