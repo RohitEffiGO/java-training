@@ -13,6 +13,7 @@ spring:
       show-sql: true
    main:
       allow-circular-references: true
+
          
 secret: 45aa7115dad9c13f30f12495a8256db791d64214a2f2ca038691e0be1e63c00e
    
