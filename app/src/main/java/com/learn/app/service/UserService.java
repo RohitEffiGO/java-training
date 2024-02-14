@@ -50,6 +50,11 @@ public class UserService implements UserDetailsService {
 	public ResponseEntity<?> registerUser(RegisterUserDto registerUser) {
 		Map<String, String> response = new HashMap<>();
 
+		if (registerUser.getEmail() == null || registerUser.getPassword() == null) {
+			response.put("message", "fields cannot be null");
+			return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
+		}
+
 		Optional<Role> defaultRole = roleRepo.findByRoleType("LEARNER");
 
 		if (defaultRole.isEmpty()) {

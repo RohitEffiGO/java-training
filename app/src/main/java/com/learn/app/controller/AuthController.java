@@ -11,6 +11,8 @@ import com.learn.app.dto.LoginUserDto;
 import com.learn.app.dto.RegisterUserDto;
 import com.learn.app.service.UserService;
 
+import jakarta.validation.constraints.NotNull;
+
 @RestController
 @RequestMapping("api/auth")
 public class AuthController {
@@ -18,7 +20,7 @@ public class AuthController {
 	UserService userService;
 
 	@PostMapping("/register")
-	public ResponseEntity<?> performRegister(@RequestBody RegisterUserDto registerUser) {
+	public ResponseEntity<?> performRegister(@NotNull @RequestBody RegisterUserDto registerUser) {
 		return userService.registerUser(registerUser);
 	}
 
