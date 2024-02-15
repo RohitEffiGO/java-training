@@ -1,4 +1,4 @@
-package com.learn.app.AuthTests;
+package com.learn.app.authtests;
 
 import static io.restassured.RestAssured.given;
 import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;

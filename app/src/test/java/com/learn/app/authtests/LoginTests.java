@@ -1,4 +1,4 @@
-package com.learn.app.AuthTests;
+package com.learn.app.authtests;
 
 import static io.restassured.RestAssured.given;
 import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
@@ -21,6 +21,7 @@ public class LoginTests {
 	private String password;
 	private String email;
 	private String loginPath = "schema/login.json";
+	private String apiPath = "api/auth/login";
 	private Gson gson;
 	private Type gsonType;
 
@@ -42,7 +43,7 @@ public class LoginTests {
 
 		String request = this.gson.toJson(requestMap, this.gsonType);
 
-		given().contentType(ContentType.JSON).body(request).when().post("api/auth/login").then().assertThat()
+		given().contentType(ContentType.JSON).body(request).when().post(this.apiPath).then().assertThat()
 				.body(matchesJsonSchemaInClasspath(this.loginPath)).statusCode(202);
 
 	}
@@ -55,14 +56,14 @@ public class LoginTests {
 
 		String request = this.gson.toJson(requestMap, this.gsonType);
 
-		given().contentType(ContentType.JSON).body(request).when().post("api/auth/login").then().statusCode(403);
+		given().contentType(ContentType.JSON).body(request).when().post(this.apiPath).then().statusCode(403);
 
 		requestMap.put("email", "test@gmail.com");
 		request = this.gson.toJson(requestMap, this.gsonType);
-		given().contentType(ContentType.JSON).body(request).when().post("api/auth/login").then().statusCode(403);
+		given().contentType(ContentType.JSON).body(request).when().post(this.apiPath).then().statusCode(403);
 
 		requestMap.put("password", "wrong password");
 		request = this.gson.toJson(requestMap, this.gsonType);
-		given().contentType(ContentType.JSON).body(request).when().post("api/auth/login").then().statusCode(403);
+		given().contentType(ContentType.JSON).body(request).when().post(this.apiPath).then().statusCode(403);
 	}
 }

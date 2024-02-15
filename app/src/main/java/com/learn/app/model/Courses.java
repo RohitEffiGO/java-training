@@ -8,6 +8,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
 @Data
@@ -18,6 +19,7 @@ public class Courses {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	Long id;
 
+	@NotNull
 	@Column(name = "name")
 	String courseName;
 

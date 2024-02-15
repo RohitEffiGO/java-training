@@ -3,12 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.learn.app.AuthTests.RegisterTest">
+      <class name="com.learn.app.coursetests.GetCoursesTest">
         <methods>
-          <include name="testRegisterFailByNull"/>
-          <include name="generateTempCreds"/>
+          <include name="defineToken"/>
+          <include name="testGetCourses"/>
+          <include name="defineCredentials"/>
         </methods>
-      </class> <!-- com.learn.app.AuthTests.RegisterTest -->
+      </class> <!-- com.learn.app.coursetests.GetCoursesTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

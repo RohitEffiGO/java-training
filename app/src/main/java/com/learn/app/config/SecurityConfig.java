@@ -15,53 +15,38 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
-import com.learn.app.filter.AllowAdminFilter;
-import com.learn.app.filter.JwtAuthenticationFilter;
+import com.learn.app.filter.CustomAuthFilter;
 import com.learn.app.service.UserService;
 
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
 	private UserService userDetailService;
-	private final JwtAuthenticationFilter jwtAuthenticationFilter;
-	private final AllowAdminFilter allowAdminFilter;
+	private CustomAuthFilter customAuthFilter;
 
-	public SecurityConfig(@Lazy UserService userDetailService, @Lazy JwtAuthenticationFilter jwtAuthenticationFilter,
-			AllowAdminFilter allowAdminFilter) {
+	public SecurityConfig(@Lazy UserService userDetailService, @Lazy CustomAuthFilter customAuthFilter) {
 		super();
 		this.userDetailService = userDetailService;
-		this.jwtAuthenticationFilter = jwtAuthenticationFilter;
-		this.allowAdminFilter = allowAdminFilter;
+		this.customAuthFilter = customAuthFilter;
 	}
 
 	@Bean
 	@Order(1)
 	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 		return http.csrf(AbstractHttpConfigurer::disable)
-				.authorizeHttpRequests(req -> req.requestMatchers("api/**").permitAll().anyRequest().anonymous())
+				.authorizeHttpRequests(req -> req.requestMatchers("api/**").permitAll().anyRequest().authenticated())
 				.userDetailsService(userDetailService)
 				.sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-				.addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class).build();
+				.addFilterBefore(customAuthFilter, UsernamePasswordAuthenticationFilter.class).build();
 	}
 
 	@Bean
-	@Order(2)
-	public SecurityFilterChain adminSecurityFilterChain(HttpSecurity http) throws Exception {
-		return http.csrf(AbstractHttpConfigurer::disable)
-				.authorizeHttpRequests(
-						req -> req.requestMatchers("/api/course/**").hasRole("ADMIN").anyRequest().authenticated())
-				.userDetailsService(userDetailService)
-				.sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-				.addFilterAfter(allowAdminFilter, UsernamePasswordAuthenticationFilter.class).build();
-	}
-
-	@Bean
-	public PasswordEncoder passwordEncoder() {
+	PasswordEncoder passwordEncoder() {
 		return new BCryptPasswordEncoder();
 	}
 
 	@Bean
-	public AuthenticationManager authenticationManager(AuthenticationConfiguration configuration) throws Exception {
+	AuthenticationManager authenticationManager(AuthenticationConfiguration configuration) throws Exception {
 		return configuration.getAuthenticationManager();
 	}
 }

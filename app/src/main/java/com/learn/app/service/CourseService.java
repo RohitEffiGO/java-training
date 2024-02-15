@@ -45,6 +45,10 @@ public class CourseService {
 			return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
 		}
 
+		if (courseDto.getCourseName() == null) {
+			return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
+		}
+
 		Category category = categoryObj.get();
 
 		Courses course = ccMapper.addCourseDtoToCourses(courseDto);
@@ -77,15 +81,20 @@ public class CourseService {
 	}
 
 	public ResponseEntity<?> getCourseId(Long id, GetCourseDto getCourseDto) {
-		List<CoursesCategory> courses = getCourse(getCourseDto).get();
+		try {
+			List<CoursesCategory> courses = getCourse(getCourseDto).get();
 
-		for (CoursesCategory course : courses) {
-			if (course.getId().equals(id)) {
-				return new ResponseEntity<>(course, HttpStatus.OK);
+			for (CoursesCategory course : courses) {
+				if (course.getId().equals(id)) {
+					return new ResponseEntity<>(course, HttpStatus.OK);
+				}
 			}
-		}
 
-		return new ResponseEntity<>(new HashMap<>().put("Message", "Course id does not exists."),
-				HttpStatus.BAD_REQUEST);
+			return new ResponseEntity<>(new HashMap<>().put("Message", "Course id does not exists."),
+					HttpStatus.BAD_REQUEST);
+		} catch (NullPointerException error) {
+			return new ResponseEntity<>(new HashMap<>().put("message", "does not exists"), HttpStatus.BAD_REQUEST);
+
+		}
 	}
 }

@@ -33,14 +33,14 @@ public class CourseController {
 
 	@PostMapping("/fetch")
 	public ResponseEntity<?> fetchCourses(@Valid @RequestBody GetCourseDto getCourseDto) {
-		Optional<List<CoursesCategory>> response = courseSevice.getCourse(getCourseDto);
+		try {
+			Optional<List<CoursesCategory>> response = courseSevice.getCourse(getCourseDto);
+			return new ResponseEntity<>(response.get(), HttpStatus.OK);
 
-		if (response.isEmpty()) {
-			return new ResponseEntity<>(new HashMap<>().put("Message", "Category does not exsits"),
+		} catch (NullPointerException error) {
+			return new ResponseEntity<>(new HashMap<>().put("error", "Category does not exists."),
 					HttpStatus.BAD_REQUEST);
 		}
-
-		return new ResponseEntity<>(response.get(), HttpStatus.OK);
 	}
 
 	@PostMapping("/fetch/{id}")
