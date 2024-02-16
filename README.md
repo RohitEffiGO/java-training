@@ -207,5 +207,4 @@ Database Schema:<br>
 Things to add:
 <ul>
     <li>Comments in code</li>
-    <li>Add junit test cases</li>
 </ul>
