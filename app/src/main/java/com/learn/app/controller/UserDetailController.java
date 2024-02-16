@@ -18,9 +18,9 @@ public class UserDetailController {
 	@Autowired
 	AdminService adminService;
 
-	@PostMapping("/roles")
+	@PostMapping("/getAll")
 	public ResponseEntity<?> getByRoles(@RequestBody TakeRoleDto takeRoleDto) {
-		return adminService.getUserByRole(takeRoleDto);
+		return adminService.getUsersByRole(takeRoleDto);
 	}
 
 	@GetMapping("/all")
