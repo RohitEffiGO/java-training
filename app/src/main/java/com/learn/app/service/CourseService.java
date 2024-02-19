@@ -6,7 +6,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
@@ -23,17 +22,22 @@ import com.learn.app.repository.CoursesCategoryRepository;
 
 @Component
 public class CourseService {
-	@Autowired
-	CourseRepository courseRepo;
 
-	@Autowired
-	CategoryRepository cateRepo;
+	private final CourseRepository courseRepo;
+	private final CategoryRepository cateRepo;
+	private final CoursesCategoryRepository ccRepo;
+	private final CourseStructMapper ccMapper;
 
-	@Autowired
-	CoursesCategoryRepository ccRepo;
+	public CourseService(CourseRepository courseRepo, CategoryRepository cateRepo, CoursesCategoryRepository ccRepo,
+			CourseStructMapper ccMapper) {
+		super();
+		this.courseRepo = courseRepo;
+		this.cateRepo = cateRepo;
+		this.ccRepo = ccRepo;
+		this.ccMapper = ccMapper;
+	}
 
-	@Autowired
-	CourseStructMapper ccMapper;
+	String msg = "message";
 
 	public ResponseEntity<Map<String, String>> addCourse(AddCourseDto courseDto) {
 		Map<String, String> response = new HashMap<>();
@@ -41,7 +45,7 @@ public class CourseService {
 		Optional<Category> categoryObj = cateRepo.findByCategoryType(courseDto.getCategory());
 
 		if (categoryObj.isEmpty()) {
-			response.put("Message", "Category not found.");
+			response.put(msg, "Category not found.");
 			return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
 		}
 
@@ -59,13 +63,11 @@ public class CourseService {
 		ccObj.setCourse(courseRepo.save(course));
 		ccRepo.save(ccObj);
 
-		response.put("Message", "Course added successfully.");
+		response.put(msg, "Course added successfully.");
 		return new ResponseEntity<>(response, HttpStatus.CREATED);
 	}
 
 	public Optional<List<CoursesCategory>> getCourse(GetCourseDto courseDto) {
-		Map<String, String> response = new HashMap<>();
-
 		Optional<Category> categoryObj = cateRepo.findByCategoryType(courseDto.getCategory());
 
 		if (categoryObj.isEmpty()) {
@@ -75,14 +77,13 @@ public class CourseService {
 		Category category = categoryObj.get();
 
 		List<CoursesCategory> courses = ccRepo.findByCategory(category);
-
-		Optional<List<CoursesCategory>> optinalList = Optional.of(courses);
-		return optinalList;
+		return Optional.of(courses);
 	}
 
 	public ResponseEntity<?> getCourseId(Long id, GetCourseDto getCourseDto) {
 		try {
-			List<CoursesCategory> courses = getCourse(getCourseDto).get();
+			Optional<List<CoursesCategory>> optionalCourses = getCourse(getCourseDto);
+			List<CoursesCategory> courses = (optionalCourses.isPresent()) ? optionalCourses.get() : null;
 
 			for (CoursesCategory course : courses) {
 				if (course.getId().equals(id)) {
@@ -90,10 +91,9 @@ public class CourseService {
 				}
 			}
 
-			return new ResponseEntity<>(new HashMap<>().put("Message", "Course id does not exists."),
-					HttpStatus.BAD_REQUEST);
+			return new ResponseEntity<>(new HashMap<>().put(msg, "Course id does not exists."), HttpStatus.BAD_REQUEST);
 		} catch (NullPointerException error) {
-			return new ResponseEntity<>(new HashMap<>().put("message", "does not exists"), HttpStatus.BAD_REQUEST);
+			return new ResponseEntity<>(new HashMap<>().put(msg, "does not exists"), HttpStatus.BAD_REQUEST);
 
 		}
 	}

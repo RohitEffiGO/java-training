@@ -1,6 +1,7 @@
 package com.learn.app.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import java.util.Map;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -16,16 +17,21 @@ import jakarta.validation.constraints.NotNull;
 @RestController
 @RequestMapping("api/auth")
 public class AuthController {
-	@Autowired
-	UserService userService;
+
+	private final UserService userService;
+
+	public AuthController(UserService userService) {
+		super();
+		this.userService = userService;
+	}
 
 	@PostMapping("/register")
-	public ResponseEntity<?> performRegister(@NotNull @RequestBody RegisterUserDto registerUser) {
+	public ResponseEntity<Map<String, String>> performRegister(@NotNull @RequestBody RegisterUserDto registerUser) {
 		return userService.registerUser(registerUser);
 	}
 
 	@PostMapping("/login")
-	public ResponseEntity<?> performLogin(@RequestBody LoginUserDto loginUser) {
+	public ResponseEntity<Map<String, String>> performLogin(@RequestBody LoginUserDto loginUser) {
 		return userService.loginUser(loginUser);
 	}
 }

@@ -1,5 +1,6 @@
 package com.learn.app.model;
 
+import java.io.Serializable;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
@@ -25,7 +26,7 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name = "cust_user")
-public class User implements UserDetails {
+public class User implements UserDetails, Serializable {
 	private static final long serialVersionUID = 5552832296146332077L;
 
 	@Id

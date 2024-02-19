@@ -47,18 +47,19 @@ public class UserService implements UserDetailsService {
 		this.jwtService = jwtService;
 	}
 
-	public ResponseEntity<?> registerUser(RegisterUserDto registerUser) {
-		Map<String, String> response = new HashMap<>();
+	Map<String, String> response = new HashMap<>();
+	String msg = "message";
 
+	public ResponseEntity<Map<String, String>> registerUser(RegisterUserDto registerUser) {
 		if (registerUser.getEmail() == null || registerUser.getPassword() == null) {
-			response.put("message", "fields cannot be null");
+			response.put(msg, "fields cannot be null");
 			return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
 		}
 
 		Optional<Role> defaultRole = roleRepo.findByRoleType("LEARNER");
 
 		if (defaultRole.isEmpty()) {
-			response.put("message", "Role does not exists.");
+			response.put(msg, "Role does not exists.");
 			return new ResponseEntity<>(response, HttpStatus.CONFLICT);
 		}
 
@@ -72,7 +73,7 @@ public class UserService implements UserDetailsService {
 		try {
 			User user = userRepo.save(newUser);
 			String token = jwtService.generateToken(user);
-			response.put("Message", token);
+			response.put(msg, token);
 			return new ResponseEntity<>(response, HttpStatus.CREATED);
 		} catch (DataIntegrityViolationException exception) {
 			response.put("Error", "User already exists.");
@@ -86,19 +87,17 @@ public class UserService implements UserDetailsService {
 
 	}
 
-	public ResponseEntity<?> loginUser(LoginUserDto loginDto) {
-		Map<String, String> response = new HashMap<>();
-
+	public ResponseEntity<Map<String, String>> loginUser(LoginUserDto loginDto) {
 		authenticationManager
 				.authenticate(new UsernamePasswordAuthenticationToken(loginDto.getEmail(), loginDto.getPassword()));
 
 		try {
 			User user = userRepo.findByEmail(loginDto.getEmail());
 			String token = jwtService.generateToken(user);
-			response.put("Message", token);
+			response.put(msg, token);
 			return new ResponseEntity<>(response, HttpStatus.ACCEPTED);
 		} catch (Exception e) {
-			response.put("Message", "Authentication error");
+			response.put(msg, "Authentication error");
 			return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
 		}
 

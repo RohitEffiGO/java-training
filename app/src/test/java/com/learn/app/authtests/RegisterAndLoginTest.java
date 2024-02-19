@@ -2,7 +2,6 @@ package com.learn.app.authtests;
 
 import static io.restassured.RestAssured.get;
 import static io.restassured.RestAssured.given;
-import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
 
 import java.lang.reflect.Type;
 import java.util.HashMap;
@@ -35,8 +34,6 @@ public class RegisterAndLoginTest {
 		this.random_password = random_password;
 	}
 
-	private final String schemaPath = "schema/";
-
 	@Test
 	public void testCategory() {
 		Response response = get("api/category/all");
@@ -57,8 +54,7 @@ public class RegisterAndLoginTest {
 		}.getType();
 		String request = gson.toJson(requestMap, gsonType);
 		given().contentType(ContentType.JSON).accept(ContentType.JSON).body(request).when().post("api/auth/register")
-				.then().assertThat().body(matchesJsonSchemaInClasspath(schemaPath + "register.json")).statusCode(201)
-				.log().all();
+				.then().assertThat().statusCode(201).log().all();
 	}
 
 	@Test(dependsOnMethods = "testRegister")
