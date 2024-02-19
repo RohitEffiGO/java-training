@@ -1,6 +1,7 @@
 package com.learn.app.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import java.util.Map;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -16,11 +17,15 @@ import jakarta.validation.Valid;
 @RestController
 @RequestMapping("/api/enroll")
 public class EnrollContoller {
-	@Autowired
-	EnrollmentService enrollService;
+	public EnrollContoller(EnrollmentService enrollService) {
+		super();
+		this.enrollService = enrollService;
+	}
+
+	private final EnrollmentService enrollService;
 
 	@PostMapping("/subscribe")
-	public ResponseEntity<?> subCourse(@RequestHeader(name = "Authorization") String header,
+	public ResponseEntity<Map<String, String>> subCourse(@RequestHeader(name = "Authorization") String header,
 			@RequestBody @Valid EnrollCourseDto enrollDto) {
 		return enrollService.enrollToUser(header, enrollDto);
 	}
@@ -31,7 +36,7 @@ public class EnrollContoller {
 	}
 
 	@PostMapping("/unsubscribe")
-	public ResponseEntity<?> unSubCourse(@RequestHeader(name = "Authorization") String header,
+	public ResponseEntity<Map<String, String>> unSubCourse(@RequestHeader(name = "Authorization") String header,
 			@RequestBody @Valid EnrollCourseDto unenrollDto) {
 		return enrollService.unEnrollToUser(header, unenrollDto);
 	}

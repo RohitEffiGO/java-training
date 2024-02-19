@@ -1,11 +1,13 @@
 package com.learn.app.repository;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
+import com.learn.app.model.Courses;
 import com.learn.app.model.Role;
 import com.learn.app.model.User;
 
@@ -19,4 +21,8 @@ public interface UserRepository extends JpaRepository<User, Long> {
 	List<User> getAllByRole(@Param("roleType") String roleType);
 
 	List<User> findByRoles(Role role);
+
+	@Query(value = "select cs.id,cs.author,cs.name,cs.date_added from courses cs"
+			+ " JOIN user_subscribed us ON cs.id = us.cust_user_id where course_id = :id;", nativeQuery = true)
+	Optional<Courses> findBySubscribed(@Param("id") Long id);
 }
