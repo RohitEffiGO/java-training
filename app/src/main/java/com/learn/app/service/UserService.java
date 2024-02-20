@@ -21,6 +21,7 @@ import org.springframework.stereotype.Component;
 
 import com.learn.app.dto.LoginUserDto;
 import com.learn.app.dto.RegisterUserDto;
+import com.learn.app.dto.UserEmailDto;
 import com.learn.app.mapper.UserStructMapper;
 import com.learn.app.model.Role;
 import com.learn.app.model.User;
@@ -107,6 +108,17 @@ public class UserService implements UserDetailsService {
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		return userRepo.findByEmail(username);
+	}
+
+	public ResponseEntity<Map<String, String>> escalateRole(UserEmailDto userEmailDto) {
+
+		if (userEmailDto.getEmail() != null) {
+			userRepo.escalateRole(userEmailDto.getEmail());
+			response.put(msg, "role escalated");
+			return new ResponseEntity<Map<String, String>>(response, HttpStatus.ACCEPTED);
+		}
+		response.put(msg, "something went wrong");
+		return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
 	}
 
 }

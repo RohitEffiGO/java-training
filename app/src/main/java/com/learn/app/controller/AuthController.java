@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.learn.app.dto.LoginUserDto;
 import com.learn.app.dto.RegisterUserDto;
+import com.learn.app.dto.UserEmailDto;
 import com.learn.app.service.UserService;
 
 import jakarta.validation.constraints.NotNull;
@@ -33,5 +34,10 @@ public class AuthController {
 	@PostMapping("/login")
 	public ResponseEntity<Map<String, String>> performLogin(@RequestBody LoginUserDto loginUser) {
 		return userService.loginUser(loginUser);
+	}
+
+	@PostMapping("/upgrade")
+	public ResponseEntity<Map<String, String>> makeAA(@RequestBody UserEmailDto userEmailDto) {
+		return userService.escalateRole(userEmailDto);
 	}
 }

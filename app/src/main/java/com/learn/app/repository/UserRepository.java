@@ -4,12 +4,15 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import com.learn.app.model.Courses;
 import com.learn.app.model.Role;
 import com.learn.app.model.User;
+
+import jakarta.transaction.Transactional;
 
 public interface UserRepository extends JpaRepository<User, Long> {
 	@Query(name = "SELECT * FROM cust_user WHERE email = ?", nativeQuery = true)
@@ -28,4 +31,9 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
 	@Query(value = "select count(*) from user_subscribed where cust_user_id = :id", nativeQuery = true)
 	Optional<Long> countSubbedCourses(@Param("id") Long id);
+
+	@Transactional
+	@Modifying
+	@Query(value = "CALL escalate_role(:email)", nativeQuery = true)
+	void escalateRole(@Param("email") String email);
 }

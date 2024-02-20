@@ -25,7 +25,7 @@ public class OtherActions {
 	public boolean dropDownSelector(WebElement dropDownElement, WebElement selectElement, Actions action) {
 		ElementAction elementAction = new ElementAction();
 
-		if (dropDownElement != null || selectElement != null) {
+		if (dropDownElement != null && selectElement != null) {
 			elementAction.hoverMouseToElement(action, dropDownElement).pause(100).build().perform();
 			elementAction.hoverMouseToElement(action, selectElement).pause(100).build().perform();
 			selectElement.click();
