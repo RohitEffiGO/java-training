@@ -86,6 +86,15 @@ public class WaitAndClickElementTest {
 		assertEquals(true, performOnElement.dropDownSelector(primary, secondary, action));
 	}
 
+	@Test
+	public void testDataInTextField() {
+		this.driver.get("https://www.saucedemo.com/");
+		WebElement usernameElement = elementAction.getTheElement(this.driver, By.cssSelector("#user-name"));
+		WebElement passwordElement = elementAction.getTheElement(this.driver, By.cssSelector("#password"));
+		assertEquals(true, performOnElement.writeInTextBox(usernameElement, "standard_user"));
+		assertEquals(true, performOnElement.writeInTextBox(passwordElement, "secret_sauce"));
+	}
+
 	@AfterTest
 	public void closeDriver() {
 		this.driver.close();
