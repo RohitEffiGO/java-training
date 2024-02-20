@@ -70,14 +70,14 @@ public class EnrollmentService {
 	}
 
 	public ResponseEntity<?> getSubscribed(String header) {
-		Map<String, Set<Courses>> response = new HashMap<>();
+		Map<String, Object> response = new HashMap<>();
 
 		try {
 			String email = jwtService.extractUsername(header.substring(7));
 			User user = userRepo.findByEmail(email);
 			Set<Courses> subbedCourses = user.getSubscribed();
 			response.put("courses", subbedCourses);
-
+			response.put("totalSubbed", userRepo.countSubbedCourses(user.getId()));
 		} catch (Exception error) {
 			return new ResponseEntity<>(new HashMap<>().put(msg, error.toString()), HttpStatus.FORBIDDEN);
 		}

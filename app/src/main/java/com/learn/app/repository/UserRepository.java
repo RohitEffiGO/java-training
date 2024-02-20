@@ -23,6 +23,9 @@ public interface UserRepository extends JpaRepository<User, Long> {
 	List<User> findByRoles(Role role);
 
 	@Query(value = "select cs.id,cs.author,cs.name,cs.date_added from courses cs"
-			+ " JOIN user_subscribed us ON cs.id = us.cust_user_id where course_id = :id;", nativeQuery = true)
+			+ " JOIN user_subscribed us ON cs.id = us.cust_user_id where course_id = :id", nativeQuery = true)
 	Optional<Courses> findBySubscribed(@Param("id") Long id);
+
+	@Query(value = "select count(*) from user_subscribed where cust_user_id = :id", nativeQuery = true)
+	Optional<Long> countSubbedCourses(@Param("id") Long id);
 }

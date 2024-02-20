@@ -9,35 +9,6 @@
           <include name="defineCredentials"/>
         </methods>
       </class> <!-- com.learn.app.authtests.LoginTests -->
-      <class name="com.learn.app.coursetests.AddCoursesTest">
-        <methods>
-          <include name="testAddCoursesAdmin"/>
-          <include name="addCourseAuthor"/>
-          <include name="defineToken"/>
-          <include name="defineCredentials"/>
-        </methods>
-      </class> <!-- com.learn.app.coursetests.AddCoursesTest -->
-      <class name="com.learn.app.coursetests.GetCoursesTest">
-        <methods>
-          <include name="getCourseByid"/>
-          <include name="defineToken"/>
-          <include name="testGetCourses"/>
-          <include name="defineCredentials"/>
-        </methods>
-      </class> <!-- com.learn.app.coursetests.GetCoursesTest -->
-      <class name="com.learn.app.authtests.RegisterTest">
-        <methods>
-          <include name="generateTempCreds"/>
-          <include name="testRegisterSuccess"/>
-        </methods>
-      </class> <!-- com.learn.app.authtests.RegisterTest -->
-      <class name="com.learn.app.authtests.RegisterAndLoginTest">
-        <methods>
-          <include name="generateTempCreds"/>
-          <include name="testLogin"/>
-          <include name="testRegister"/>
-        </methods>
-      </class> <!-- com.learn.app.authtests.RegisterAndLoginTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

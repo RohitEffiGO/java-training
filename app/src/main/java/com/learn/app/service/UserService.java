@@ -94,8 +94,9 @@ public class UserService implements UserDetailsService {
 		try {
 			User user = userRepo.findByEmail(loginDto.getEmail());
 			String token = jwtService.generateToken(user);
-			response.put(msg, token);
-			return new ResponseEntity<>(response, HttpStatus.ACCEPTED);
+			Map<String, String> reply = new HashMap<>();
+			reply.put("message", token);
+			return new ResponseEntity<>(reply, HttpStatus.ACCEPTED);
 		} catch (Exception e) {
 			response.put(msg, "Authentication error");
 			return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);

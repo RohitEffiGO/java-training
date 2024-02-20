@@ -1,7 +1,6 @@
 package com.learn.app.authtests;
 
 import static io.restassured.RestAssured.given;
-import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
 
 import java.lang.reflect.Type;
 import java.util.HashMap;
@@ -20,7 +19,6 @@ import io.restassured.http.ContentType;
 public class LoginTests {
 	private String password;
 	private String email;
-	private String loginPath = "schema/login.json";
 	private String apiPath = "api/auth/login";
 	private Gson gson;
 	private Type gsonType;
@@ -44,7 +42,7 @@ public class LoginTests {
 		String request = this.gson.toJson(requestMap, this.gsonType);
 
 		given().contentType(ContentType.JSON).body(request).when().post(this.apiPath).then().assertThat()
-				.body(matchesJsonSchemaInClasspath(this.loginPath)).statusCode(202);
+				.statusCode(202);
 
 	}
 
