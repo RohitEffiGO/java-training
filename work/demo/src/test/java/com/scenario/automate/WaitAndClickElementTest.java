@@ -1,19 +1,22 @@
 package com.scenario.automate;
 
 import static org.testng.Assert.assertEquals;
-
-import java.util.ArrayList;
-import java.util.List;
+import static org.testng.Assert.assertNotEquals;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.interactions.Actions;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import com.scenario.automate.utils.ElementAction;
+import com.scenario.automate.utils.OtherActions;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
@@ -22,6 +25,7 @@ public class WaitAndClickElementTest {
 	private WebDriver driver;
 	private ElementAction elementAction;
 	private FirefoxOptions options;
+	private OtherActions performOnElement;
 
 	@BeforeTest
 	public void loadWebDriver() {
@@ -30,97 +34,60 @@ public class WaitAndClickElementTest {
 		this.options.addArguments("-private");
 		this.driver = new FirefoxDriver(options);
 		this.elementAction = new ElementAction();
+		this.performOnElement = new OtherActions();
+	}
+
+	@Test(priority = 1)
+	public void testFindElement() {
+		this.driver.get("https://www.saucedemo.com/");
+		assertEquals(true, elementAction.checkForElement(this.driver, By.cssSelector("#user-name")));
+		assertEquals(true, elementAction.checkForElement(this.driver, By.xpath("//*[@id=\"user-name\"]")));
+		assertEquals(true, elementAction.checkForElement(this.driver, By.id("user-name")));
+	}
+
+	@Test(priority = 2)
+	public void testGetWebElement() {
+		this.driver.get("https://www.demoblaze.com/index.html");
+		assertNotEquals(null,
+				elementAction.getTheElement(driver, By.cssSelector("div.col-md-6:nth-child(1) > div:nth-child(1)")));
+	}
+
+	@Test(priority = 3)
+	public void testClickOnElement() {
+		this.driver.get("https://www.demoblaze.com/index.html");
+		WebElement element = elementAction.getTheElement(driver, By.cssSelector(
+				"html body div#contcont.container div.row div.col-lg-9 div#tbodyid.row div.col-lg-4.col-md-6.mb-4 div.card.h-100 div.card-block h4.card-title a.hrefch"));
+		assertEquals(true, elementAction.clickOnElement(element));
+	}
+
+	@Test(priority = 4)
+	public void testRadioButton() {
+		this.driver.get("https://artoftesting.com/samplesiteforselenium");
+		Actions action = new Actions(this.driver);
+
+		action.sendKeys(Keys.ARROW_DOWN).sendKeys(Keys.ARROW_DOWN).sendKeys(Keys.ARROW_DOWN).sendKeys(Keys.ARROW_DOWN)
+				.sendKeys(Keys.ARROW_DOWN).sendKeys(Keys.ARROW_DOWN).sendKeys(Keys.ARROW_DOWN).sendKeys(Keys.ARROW_DOWN)
+				.sendKeys(Keys.ARROW_DOWN).sendKeys(Keys.ARROW_DOWN).sendKeys(Keys.ARROW_DOWN).sendKeys(Keys.ARROW_DOWN)
+				.sendKeys(Keys.ARROW_DOWN).pause(100).build().perform();
+
+		performOnElement.selectRadioButton(elementAction.getTheElement(this.driver, By.cssSelector("#male")));
+		action.pause(100).build().perform();
+		performOnElement.selectRadioButton(elementAction.getTheElement(this.driver, By.cssSelector("#female")));
 	}
 
 	@Test
-	public void openBrowser() {
-		driver.get("https://www.google.com/");
-		driver.close();
+	public void dropDownSelector() {
+		this.driver.get("https://artoftesting.com/samplesiteforselenium");
+
+		Actions action = new Actions(this.driver);
+		WebElement primary = elementAction.getTheElement(this.driver, By.cssSelector("#menu-item-98 > a:nth-child(1)"));
+		WebElement secondary = elementAction.getTheElement(this.driver,
+				By.cssSelector("#menu-item-309 > a:nth-child(1)"));
+		assertEquals(true, performOnElement.dropDownSelector(primary, secondary, action));
 	}
 
-	@Test
-	public void searchAndClickId() {
-		this.driver = new FirefoxDriver(options);
-		driver.get("https://www.saucedemo.com/");
-		if (elementAction.checkForElement(driver, By.id("user-name"))) {
-			driver.close();
-		}
-	}
-
-	@Test
-	public void searchAndClickCss() {
-		this.driver = new FirefoxDriver(options);
-		driver.get("https://www.saucedemo.com/");
-		System.out.println(elementAction.checkForElement(driver, By.cssSelector("#user-name")));
-		if (elementAction.checkForElement(driver, By.cssSelector("#user-name"))) {
-			driver.close();
-		}
-	}
-
-	@Test
-	public void searchAndClickXpath() {
-		this.driver = new FirefoxDriver(options);
-		driver.get("https://www.saucedemo.com/");
-		if (elementAction.checkForElement(driver, By.xpath("//*[@id=\"user-name\"]"))) {
-			driver.close();
-		}
-	}
-
-	@Test
-	public void testTextField() {
-		this.driver = new FirefoxDriver(this.options);
-		driver.get("https://www.saucedemo.com/");
-
-		assertEquals(true, elementAction.writeInTextBox(driver, By.xpath("//*[@id=\"user-name\"]"), "standard_user"));
-		assertEquals(true, elementAction.writeInTextBox(driver, By.cssSelector("#password"), "secret_sauce"));
-
-		driver.close();
-	}
-
-	@Test
-	public void testButton() {
-		this.driver = new FirefoxDriver(this.options);
-		driver.get("https://www.saucedemo.com/");
-
-		assertEquals(true, elementAction.writeInTextBox(driver, By.xpath("//*[@id=\"user-name\"]"), "standard_user"));
-		assertEquals(true, elementAction.writeInTextBox(driver, By.cssSelector("#password"), "secret_sauce"));
-		assertEquals(true, elementAction.clickOnElement(driver, By.cssSelector("#login-button")));
-
-		driver.close();
-	}
-
-	@Test
-	public void testMouseHover() {
-		this.driver = new FirefoxDriver(this.options);
-		driver.get("https://www.saucedemo.com/");
-
-		assertEquals(true, elementAction.writeInTextBox(driver, By.xpath("//*[@id=\"user-name\"]"), "standard_user"));
-		assertEquals(true, elementAction.writeInTextBox(driver, By.cssSelector("#password"), "secret_sauce"));
-		assertEquals(true, elementAction.clickOnElement(driver, By.cssSelector("#login-button")));
-
-		elementAction.hoverMouseToElement(driver, By.cssSelector(".product_sort_container")).click().build().perform();
-		driver.close();
-	}
-
-	@Test
-	public void testSelectRadioButton() {
-		this.driver = new FirefoxDriver(this.options);
-		driver.get("https://seleniumbase.io/w3schools/radio_buttons");
-		assertEquals(true, elementAction.selectRadioButton(driver, By.xpath("//*[@id=\"html\" @type=\"radio\"]")));
-
-	}
-
-	@Test
-	public void testDropDownSelector() throws InterruptedException {
-		this.driver = new FirefoxDriver(this.options);
-		driver.get("https://artoftesting.com/samplesiteforselenium");
-
-		List<By> instructions = new ArrayList<>();
-		instructions.add(By.xpath("//*[@id=\"menu-item-99\"]"));
-		instructions.add(By.xpath("//*[@id=\"menu-item-313\"]"));
-		instructions.add(By.xpath("//*[@id=\"menu-item-99\"]"));
-		instructions.add(By.xpath("//*[@id=\"menu-item-605\"]"));
-
-		assertEquals(true, elementAction.dropDownSelector(driver, instructions));
+	@AfterTest
+	public void closeDriver() {
+		this.driver.close();
 	}
 }

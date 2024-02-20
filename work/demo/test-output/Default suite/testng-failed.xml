@@ -5,8 +5,9 @@
     <classes>
       <class name="com.scenario.automate.WaitAndClickElementTest">
         <methods>
-          <include name="testSelectRadioButton"/>
+          <include name="testRadioButton"/>
           <include name="loadWebDriver"/>
+          <include name="closeDriver"/>
         </methods>
       </class> <!-- com.scenario.automate.WaitAndClickElementTest -->
     </classes>
