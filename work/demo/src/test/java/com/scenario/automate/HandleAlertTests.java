@@ -80,6 +80,39 @@ public class HandleAlertTests {
 		assertEquals(true, handler.handleAlertWithTextBox(driver, "This is a test data"));
 	}
 
+	@Test
+	public void testClosePopUp() {
+		driver.manage().window().maximize();
+		driver.get("https://www.webroot.com/services/popuptester1.htm");
+
+		assertEquals(true, handler.closePopUp(driver));
+	}
+
+	@Test
+	public void testModalOpenAndClose() {
+		driver.manage().window().maximize();
+		driver.get("https://www.lambdatest.com/selenium-playground/bootstrap-modal-demo");
+
+		WebElement triggerElement = elementAction.getTheElement(driver,
+				By.xpath("/html/body/div[1]/section[2]/div/div/div/div[1]/button"));
+
+		assertEquals(true, elementAction.clickOnElement(triggerElement));
+
+		WebElement interactElement = elementAction.getTheElement(driver,
+				By.xpath("/html/body/div[1]/section[2]/div/div/div/div[1]/div[2]/div/div/div[3]/button[2]"));
+
+		handler.waitForElement(driver, interactElement);
+		assertEquals(true, handler.dialogBoxHandler(interactElement));
+
+		elementAction.clickOnElement(triggerElement);
+
+		WebElement closeElement = elementAction.getTheElement(driver,
+				By.xpath("/html/body/div[1]/section[2]/div/div/div/div[1]/div[2]/div/div/div[1]/button"));
+
+		handler.waitForElement(driver, closeElement);
+		assertEquals(true, handler.dialogBoxHandler(closeElement));
+	}
+
 	@AfterTest
 	public void closeAll() {
 		driver.close();

@@ -5,8 +5,8 @@
     <classes>
       <class name="com.scenario.automate.HandleAlertTests">
         <methods>
+          <include name="testModalOpenAndClose"/>
           <include name="loadEverything"/>
-          <include name="sendAlertMessageTest"/>
           <include name="closeAll"/>
         </methods>
       </class> <!-- com.scenario.automate.HandleAlertTests -->

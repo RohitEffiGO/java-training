@@ -1,29 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results total="3" passed="3" failed="0" skipped="0">
+<testng-results total="5" passed="5" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-02-22T07:00:58Z" name="Default suite" finished-at="2024-02-22T07:01:04Z" duration-ms="5252">
+  <suite started-at="2024-02-22T09:19:07Z" name="Default suite" finished-at="2024-02-22T09:19:49Z" duration-ms="41585">
     <groups>
     </groups>
-    <test started-at="2024-02-22T07:00:58Z" name="Default test" finished-at="2024-02-22T07:01:04Z" duration-ms="5252">
+    <test started-at="2024-02-22T09:19:07Z" name="Default test" finished-at="2024-02-22T09:19:49Z" duration-ms="41585">
       <class name="com.scenario.automate.HandleAlertTests">
-        <test-method is-config="true" signature="loadEverything()[pri:0, instance:com.scenario.automate.HandleAlertTests@c05fddc]" started-at="2024-02-22T12:30:58Z" name="loadEverything" finished-at="2024-02-22T12:31:00Z" duration-ms="1281" status="PASS">
+        <test-method is-config="true" signature="loadEverything()[pri:0, instance:com.scenario.automate.HandleAlertTests@4d15107f]" started-at="2024-02-22T14:49:07Z" name="loadEverything" finished-at="2024-02-22T14:49:08Z" duration-ms="1267" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- loadEverything -->
-        <test-method signature="cancelAlertTest()[pri:0, instance:com.scenario.automate.HandleAlertTests@c05fddc]" started-at="2024-02-22T12:31:00Z" name="cancelAlertTest" finished-at="2024-02-22T12:31:02Z" duration-ms="2071" status="PASS">
+        <test-method signature="cancelAlertTest()[pri:0, instance:com.scenario.automate.HandleAlertTests@4d15107f]" started-at="2024-02-22T14:49:08Z" name="cancelAlertTest" finished-at="2024-02-22T14:49:11Z" duration-ms="2161" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- cancelAlertTest -->
-        <test-method signature="handleAlertTest()[pri:0, instance:com.scenario.automate.HandleAlertTests@c05fddc]" started-at="2024-02-22T12:31:02Z" name="handleAlertTest" finished-at="2024-02-22T12:31:02Z" duration-ms="869" status="PASS">
+        <test-method signature="handleAlertTest()[pri:0, instance:com.scenario.automate.HandleAlertTests@4d15107f]" started-at="2024-02-22T14:49:11Z" name="handleAlertTest" finished-at="2024-02-22T14:49:12Z" duration-ms="1168" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- handleAlertTest -->
-        <test-method signature="sendAlertMessageTest()[pri:0, instance:com.scenario.automate.HandleAlertTests@c05fddc]" started-at="2024-02-22T12:31:02Z" name="sendAlertMessageTest" finished-at="2024-02-22T12:31:03Z" duration-ms="917" status="PASS">
+        <test-method signature="sendAlertMessageTest()[pri:0, instance:com.scenario.automate.HandleAlertTests@4d15107f]" started-at="2024-02-22T14:49:12Z" name="sendAlertMessageTest" finished-at="2024-02-22T14:49:13Z" duration-ms="934" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- sendAlertMessageTest -->
-        <test-method is-config="true" signature="closeAll()[pri:0, instance:com.scenario.automate.HandleAlertTests@c05fddc]" started-at="2024-02-22T12:31:03Z" name="closeAll" finished-at="2024-02-22T12:31:04Z" duration-ms="94" status="PASS">
+        <test-method signature="testClosePopUp()[pri:0, instance:com.scenario.automate.HandleAlertTests@4d15107f]" started-at="2024-02-22T14:49:13Z" name="testClosePopUp" finished-at="2024-02-22T14:49:46Z" duration-ms="33304" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testClosePopUp -->
+        <test-method signature="testModalOpenAndClose()[pri:0, instance:com.scenario.automate.HandleAlertTests@4d15107f]" started-at="2024-02-22T14:49:46Z" name="testModalOpenAndClose" finished-at="2024-02-22T14:49:49Z" duration-ms="2594" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testModalOpenAndClose -->
+        <test-method is-config="true" signature="closeAll()[pri:0, instance:com.scenario.automate.HandleAlertTests@4d15107f]" started-at="2024-02-22T14:49:49Z" name="closeAll" finished-at="2024-02-22T14:49:49Z" duration-ms="136" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- closeAll -->
