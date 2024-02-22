@@ -19,7 +19,7 @@ public class ElementAction {
 
 //	Remember this method can return null value
 	public WebElement getTheElement(WebDriver driver, By findBy) {
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
 		WebElement searchResult = wait.until(ExpectedConditions.presenceOfElementLocated(findBy));
 		return searchResult;
 	}

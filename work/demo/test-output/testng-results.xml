@@ -1,25 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results total="1" passed="1" failed="0" skipped="0">
+<testng-results total="3" passed="3" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-02-20T08:26:13Z" name="Default suite" finished-at="2024-02-20T08:26:19Z" duration-ms="5745">
+  <suite started-at="2024-02-22T07:00:58Z" name="Default suite" finished-at="2024-02-22T07:01:04Z" duration-ms="5252">
     <groups>
     </groups>
-    <test started-at="2024-02-20T08:26:13Z" name="Default test" finished-at="2024-02-20T08:26:19Z" duration-ms="5745">
-      <class name="com.scenario.automate.WaitAndClickElementTest">
-        <test-method is-config="true" signature="loadWebDriver()[pri:0, instance:com.scenario.automate.WaitAndClickElementTest@7a6d7e92]" started-at="2024-02-20T13:56:13Z" name="loadWebDriver" finished-at="2024-02-20T13:56:17Z" duration-ms="3946" status="PASS">
+    <test started-at="2024-02-22T07:00:58Z" name="Default test" finished-at="2024-02-22T07:01:04Z" duration-ms="5252">
+      <class name="com.scenario.automate.HandleAlertTests">
+        <test-method is-config="true" signature="loadEverything()[pri:0, instance:com.scenario.automate.HandleAlertTests@c05fddc]" started-at="2024-02-22T12:30:58Z" name="loadEverything" finished-at="2024-02-22T12:31:00Z" duration-ms="1281" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- loadWebDriver -->
-        <test-method signature="testDataInTextField()[pri:0, instance:com.scenario.automate.WaitAndClickElementTest@7a6d7e92]" started-at="2024-02-20T13:56:17Z" name="testDataInTextField" finished-at="2024-02-20T13:56:18Z" duration-ms="823" status="PASS">
+        </test-method> <!-- loadEverything -->
+        <test-method signature="cancelAlertTest()[pri:0, instance:com.scenario.automate.HandleAlertTests@c05fddc]" started-at="2024-02-22T12:31:00Z" name="cancelAlertTest" finished-at="2024-02-22T12:31:02Z" duration-ms="2071" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testDataInTextField -->
-        <test-method is-config="true" signature="closeDriver()[pri:0, instance:com.scenario.automate.WaitAndClickElementTest@7a6d7e92]" started-at="2024-02-20T13:56:18Z" name="closeDriver" finished-at="2024-02-20T13:56:19Z" duration-ms="965" status="PASS">
+        </test-method> <!-- cancelAlertTest -->
+        <test-method signature="handleAlertTest()[pri:0, instance:com.scenario.automate.HandleAlertTests@c05fddc]" started-at="2024-02-22T12:31:02Z" name="handleAlertTest" finished-at="2024-02-22T12:31:02Z" duration-ms="869" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- closeDriver -->
-      </class> <!-- com.scenario.automate.WaitAndClickElementTest -->
+        </test-method> <!-- handleAlertTest -->
+        <test-method signature="sendAlertMessageTest()[pri:0, instance:com.scenario.automate.HandleAlertTests@c05fddc]" started-at="2024-02-22T12:31:02Z" name="sendAlertMessageTest" finished-at="2024-02-22T12:31:03Z" duration-ms="917" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- sendAlertMessageTest -->
+        <test-method is-config="true" signature="closeAll()[pri:0, instance:com.scenario.automate.HandleAlertTests@c05fddc]" started-at="2024-02-22T12:31:03Z" name="closeAll" finished-at="2024-02-22T12:31:04Z" duration-ms="94" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeAll -->
+      </class> <!-- com.scenario.automate.HandleAlertTests -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
