@@ -8,11 +8,12 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.testng.annotations.AfterTest;
@@ -35,13 +36,19 @@ public class UploadAndDownloadTest {
 				"D:\\Login\\work\\demo\\src\\main\\resources\\chromedriver-win64\\chromedriver.exe");
 
 		this.options = new ChromeOptions();
-		options.addArguments("incognito");
 		Map<String, Object> chromePrefs = new HashMap<String, Object>();
+
 		String downloadFilepath = "D:\\Login\\work\\demo\\src\\main\\resources\\files";
+
 		chromePrefs.put("download.default_directory", downloadFilepath);
 		chromePrefs.put("download.prompt_for_download", false);
+		chromePrefs.put("download.extensions_to_open", "application/txt");
+		chromePrefs.put("safebrowsing.enabled", true);
 
+		options.addArguments("--safebrowsing-disable-download-protection");
+		options.addArguments("safebrowsing-disable-extension-blacklist");
 		options.setExperimentalOption("prefs", chromePrefs);
+
 		this.driver = new ChromeDriver(options);
 		this.elementAction = new ElementAction();
 		this.ops = new FileOperations();
@@ -49,6 +56,7 @@ public class UploadAndDownloadTest {
 
 	@Test
 	public void testUpload() {
+		driver.manage().window().maximize();
 		driver.get("https://demoqa.com/upload-download");
 		WebElement element = elementAction.getTheElement(driver, By.cssSelector("#uploadFile"));
 		assertNotEquals(null, element);
@@ -57,25 +65,27 @@ public class UploadAndDownloadTest {
 
 	@Test
 	public void testDownload() throws InterruptedException {
-		driver.get("https://www.stats.govt.nz/large-datasets/csv-files-for-download/");
-		WebElement element = elementAction.getTheElement(this.driver, By.cssSelector(
-				"div.l12:nth-child(2) > article:nth-child(1) > ul:nth-child(2) > li:nth-child(1) > div:nth-child(1) > div:nth-child(2) > h3:nth-child(1) > a:nth-child(1)"));
+		driver.manage().window().maximize();
+		driver.get("https://myjob.page/tools/random-file-generator");
 
-		assertNotEquals(null, element);
+		Actions actions = new Actions(this.driver);
+		WebElement primaryElement = elementAction.getTheElement(driver, By.cssSelector("#multiplier"));
+		WebElement downloadElement = elementAction.getTheElement(driver, By.cssSelector("button.btn"));
 
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
-		wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector(
-				"div.l12:nth-child(2) > article:nth-child(1) > ul:nth-child(2) > li:nth-child(1) > div:nth-child(1) > div:nth-child(2) > h3:nth-child(1) > a:nth-child(1)")));
+		assertNotEquals(downloadElement, null);
+		assertNotEquals(null, primaryElement);
 
-		assertEquals(true, ops.downloadFileUsingElement(element, "src/main/resources/files/", wait));
+		actions.moveToElement(primaryElement).click().pause(Duration.ofSeconds(2)).keyDown(Keys.UP).keyDown(Keys.ENTER)
+				.build().perform();
 
-		driver.switchTo().alert().accept();
-		Thread.sleep(1000);
+		boolean result = ops.downloadFileUsingElement(downloadElement,
+				new WebDriverWait(driver, Duration.ofSeconds(20)), 3);
+		assertEquals(true, result);
 	}
 
 	@AfterTest
 	public void destroyEverything() {
 
-		driver.close();
+//		driver.close();
 	}
 }

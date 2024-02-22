@@ -3,13 +3,13 @@
 <suite parallel="none" name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test parallel="none" name="Default test(failed)">
     <classes>
-      <class name="com.scenario.automate.HandleAlertTests">
+      <class name="com.scenario.automate.UploadAndDownloadTest">
         <methods>
-          <include name="testModalOpenAndClose"/>
+          <include name="testDownload"/>
           <include name="loadEverything"/>
-          <include name="closeAll"/>
+          <include name="destroyEverything"/>
         </methods>
-      </class> <!-- com.scenario.automate.HandleAlertTests -->
+      </class> <!-- com.scenario.automate.UploadAndDownloadTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

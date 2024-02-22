@@ -3,6 +3,7 @@ package com.scenario.automate.utils;
 import java.io.File;
 
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class FileOperations {
@@ -26,14 +27,15 @@ public class FileOperations {
 		return false;
 	}
 
-	public boolean downloadFileUsingElement(WebElement element, String savePath, WebDriverWait wait)
+	public boolean downloadFileUsingElement(WebElement element, WebDriverWait wait, int seconds)
 			throws InterruptedException {
 
-		File filePathFile = new File(savePath);
-		if (element != null && filePathFile.isDirectory()) {
+		if (element != null) {
 
+			wait.until(ExpectedConditions.elementToBeClickable(element));
 			element.click();
-			Thread.sleep(1000);
+
+			Thread.sleep(seconds * 1000);
 			return true;
 		}
 		return false;
