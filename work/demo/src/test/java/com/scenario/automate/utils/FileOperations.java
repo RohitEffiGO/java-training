@@ -27,6 +27,23 @@ public class FileOperations {
 		return false;
 	}
 
+	
+/*****
+	 * To download in custom path pre config the driver using
+	 * 
+	 * String downloadFilePath = "<some absolute path>";
+	 * chromePrefs.put("download.default_directory", downloadFilepath);
+	 * chromePrefs.put("download.prompt_for_download", false);
+	 * chromePrefs.put("download.extensions_to_open", "application/txt");
+	 * chromePrefs.put("safebrowsing.enabled", true);
+	 * 
+	 * options.addArguments("--safebrowsing-disable-download-protection");
+	 * options.addArguments("safebrowsing-disable-extension-blacklist");
+	 * options.setExperimentalOption("prefs", chromePrefs);
+	 * 
+	 * Now pass this options object to the ChromeDriver initialization.
+******/
+	
 	public boolean downloadFileUsingElement(WebElement element, WebDriverWait wait, int seconds)
 			throws InterruptedException {
 
