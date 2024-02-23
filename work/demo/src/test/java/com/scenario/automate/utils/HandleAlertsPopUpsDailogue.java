@@ -44,6 +44,23 @@ public class HandleAlertsPopUpsDailogue {
 		return false;
 	}
 
+	/*
+	 * This method takes instance of webdriver and switches to window(pop up) if
+	 * appeared.
+	 */
+	public WebDriver switchToPopUp(WebDriver driver) {
+		String parentHandle = driver.getWindowHandle();
+		Set<String> allHandleSet = driver.getWindowHandles();
+
+		for (String handle : allHandleSet) {
+			if (!handle.equals(parentHandle)) {
+				return driver.switchTo().window(handle);
+			}
+		}
+
+		return driver;
+	}
+
 	public boolean closePopUp(WebDriver driver) {
 
 		String parentHandle = driver.getWindowHandle();
