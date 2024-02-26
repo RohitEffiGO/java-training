@@ -1,0 +1,42 @@
+{
+  "person": {
+    "name": "Alice",
+    "age": 28,
+    "address": {
+      "street": "456 Oak St",
+      "city": "Wonderland",
+      "zipcode": "12345"
+    },
+    "contacts": [
+      {
+        "type": "email",
+        "value": "alice@example.com"
+      },
+      {
+        "type": "phone",
+        "value": "+1234567890"
+      }
+    ],
+    "skills": {
+      "programming": ["Java", "JavaScript", "Python"],
+      "languages": ["English", "French"]
+    },
+    "isStudent": false
+  },
+  "company": {
+    "name": "Tech Co.",
+    "location": "Silicon Valley",
+    "employees": [
+      {
+        "name": "Bob",
+        "position": "Software Engineer",
+        "skills": ["C++", "Java"]
+      },
+      {
+        "name": "Charlie",
+        "position": "Data Scientist",
+        "skills": ["Python", "R"]
+      }
+    ]
+  }
+}

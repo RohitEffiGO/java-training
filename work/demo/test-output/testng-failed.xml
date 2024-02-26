@@ -3,13 +3,12 @@
 <suite parallel="none" name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test parallel="none" name="Default test(failed)">
     <classes>
-      <class name="com.scenario.automate.UploadAndDownloadTest">
+      <class name="com.scenario.automate.JsonTests">
         <methods>
-          <include name="testDownload"/>
-          <include name="loadEverything"/>
-          <include name="destroyEverything"/>
+          <include name="initClasses"/>
+          <include name="jsonTest2"/>
         </methods>
-      </class> <!-- com.scenario.automate.UploadAndDownloadTest -->
+      </class> <!-- com.scenario.automate.JsonTests -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
