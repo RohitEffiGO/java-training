@@ -1,0 +1,7 @@
+{"properties": [
+  {
+    "name": "executeOnlyFailedTests",
+    "type": "java.lang.String",
+    "description": "This property enables or disable the working of executing failed tests only."
+  }
+]}

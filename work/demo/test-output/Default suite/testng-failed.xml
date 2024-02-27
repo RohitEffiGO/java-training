@@ -3,12 +3,11 @@
 <suite parallel="none" name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test parallel="none" name="Default test(failed)">
     <classes>
-      <class name="com.scenario.automate.JsonTests">
+      <class name="com.scenario.automate.RunOnlyFailedTests">
         <methods>
-          <include name="initClasses"/>
-          <include name="jsonTest2"/>
+          <include name="anotherFailure"/>
         </methods>
-      </class> <!-- com.scenario.automate.JsonTests -->
+      </class> <!-- com.scenario.automate.RunOnlyFailedTests -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
