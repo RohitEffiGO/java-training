@@ -14,8 +14,8 @@ public class LearnerAuthFilter {
 		String userUrl = request.getRequestURL().toString();
 		List<String> urls = new ArrayList<>();
 
-		urls.add("http://localhost:8080/api/fav");
-		urls.add("http://localhost:8080/api/enroll");
+		urls.add("api/fav");
+		urls.add("api/enroll");
 
 		AnonymousAuthFilter anonymousFilter = new AnonymousAuthFilter();
 		if (anonymousFilter.authenticate(request) || anonymousFilter.freeAccess(request)) {

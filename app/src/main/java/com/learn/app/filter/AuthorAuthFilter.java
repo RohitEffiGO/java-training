@@ -15,9 +15,9 @@ public class AuthorAuthFilter {
 
 		List<String> urls = new ArrayList<>();
 
-		urls.add("http://localhost:8080/api/course");
-		urls.add("http://localhost:8080/api/fav");
-		urls.add("http://localhost:8080/api/enroll");
+		urls.add("api/course");
+		urls.add("api/fav");
+		urls.add("api/enroll");
 
 		AnonymousAuthFilter anonymousFilter = new AnonymousAuthFilter();
 		if (anonymousFilter.authenticate(request) || anonymousFilter.freeAccess(request)) {

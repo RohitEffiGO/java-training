@@ -16,4 +16,7 @@ spring:
 
          
 secret: 45aa7115dad9c13f30f12495a8256db791d64214a2f2ca038691e0be1e63c00e
+server:
+   address: 0.0.0.0
+   port: 8080
    
