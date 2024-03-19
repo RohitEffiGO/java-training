@@ -1,17 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results total="1" passed="1" failed="0" skipped="0">
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-02-27T10:24:44Z" name="Default suite" finished-at="2024-02-27T10:24:44Z" duration-ms="189">
+  <suite started-at="2024-03-11T12:05:49 IST" name="Default suite" finished-at="2024-03-11T12:05:55 IST" duration-ms="5698">
     <groups>
     </groups>
-    <test started-at="2024-02-27T10:24:44Z" name="Default test" finished-at="2024-02-27T10:24:44Z" duration-ms="189">
-      <class name="com.scenario.automate.RunOnlyFailedTests">
-        <test-method signature="testRunOnlyTest()[pri:0, instance:com.scenario.automate.RunOnlyFailedTests@68c9d179]" started-at="2024-02-27T15:54:44Z" name="testRunOnlyTest" finished-at="2024-02-27T15:54:44Z" duration-ms="174" status="PASS">
+    <test started-at="2024-03-11T12:05:49 IST" name="Default test" finished-at="2024-03-11T12:05:55 IST" duration-ms="5698">
+      <class name="com.scenario.automate.HandleAlertTests">
+        <test-method is-config="true" signature="loadEverything()[pri:0, instance:com.scenario.automate.HandleAlertTests@57af006c]" started-at="2024-03-11T12:05:49 IST" name="loadEverything" finished-at="2024-03-11T12:05:53 IST" duration-ms="3854" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testRunOnlyTest -->
-      </class> <!-- com.scenario.automate.RunOnlyFailedTests -->
+        </test-method> <!-- loadEverything -->
+        <test-method signature="handleAlertTest()[pri:0, instance:com.scenario.automate.HandleAlertTests@57af006c]" started-at="2024-03-11T12:05:53 IST" name="handleAlertTest" finished-at="2024-03-11T12:05:55 IST" duration-ms="1636" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- handleAlertTest -->
+        <test-method is-config="true" signature="closeAll()[pri:0, instance:com.scenario.automate.HandleAlertTests@57af006c]" started-at="2024-03-11T12:05:55 IST" name="closeAll" finished-at="2024-03-11T12:05:55 IST" duration-ms="155" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeAll -->
+      </class> <!-- com.scenario.automate.HandleAlertTests -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

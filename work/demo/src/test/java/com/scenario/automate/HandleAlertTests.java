@@ -18,6 +18,8 @@ import org.testng.annotations.Test;
 import com.scenario.automate.utils.ElementAction;
 import com.scenario.automate.utils.HandleAlertsPopUpsDailogue;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
+
 @SpringBootTest
 public class HandleAlertTests {
 	ChromeOptions options;
@@ -27,15 +29,10 @@ public class HandleAlertTests {
 
 	@BeforeTest
 	public void loadEverything() {
-		System.setProperty("webdriver.chrome.driver",
-				"D:\\Login\\work\\demo\\src\\main\\resources\\chromedriver-win64\\chromedriver.exe");
-
+		WebDriverManager.chromedriver().setup();
 		this.options = new ChromeOptions();
 		options.addArguments("incognito");
 		Map<String, Object> chromePrefs = new HashMap<String, Object>();
-		String downloadFilepath = "D:\\Login\\work\\demo\\src\\main\\resources\\files";
-		chromePrefs.put("download.default_directory", downloadFilepath);
-		chromePrefs.put("download.prompt_for_download", false);
 
 		options.setExperimentalOption("prefs", chromePrefs);
 		this.driver = new ChromeDriver(options);
