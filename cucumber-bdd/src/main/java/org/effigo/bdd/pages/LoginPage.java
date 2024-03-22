@@ -1,67 +1,61 @@
 package org.effigo.bdd.pages;
 
-import java.time.Duration;
-
-import org.openqa.selenium.By;
+import org.effigo.bdd.utils.Loader;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.How;
+import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
 
-public class LoginPage {
+public class LoginPage extends Loader {
 	WebDriver driver;
+
+	@FindBy(how = How.XPATH, using = "//input[@name='username']")
+	WebElement usernameElement;
+
+	@FindBy(how = How.XPATH, using = "//input[@name='password']")
+	WebElement passwordElement;
+
+	@FindBy(how = How.XPATH, using = "//button[text()=' Login ']")
+	WebElement loginElement;
+
+	@FindBy(how = How.XPATH, using = "//span[text()='Admin']")
+	WebElement adminPanElement;
+
+	@FindBy(how = How.XPATH, using = "//p[text()='Invalid credentials']")
+	WebElement invalidMessageElement;
 
 	public LoginPage(WebDriver driver) {
 		this.driver = driver;
+		PageFactory.initElements(new AjaxElementLocatorFactory(driver, 30), this);
 	}
 
 	public void enterUsername() {
-		By userBy = By.xpath("//input[@name='username']");
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
-		WebElement searchResult = wait.until(ExpectedConditions.presenceOfElementLocated(userBy));
-		searchResult.sendKeys("Admin");
+		usernameElement.sendKeys("Admin");
 	}
 
 	public void enterUsername(String username) {
-		By userBy = By.xpath("//input[@name='username']");
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
-		WebElement searchResult = wait.until(ExpectedConditions.presenceOfElementLocated(userBy));
-		searchResult.sendKeys(username);
+		usernameElement.sendKeys(username);
 	}
 
 	public void enterPassword() {
-		By passBy = By.xpath("//input[@name='password']");
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
-		WebElement searchResult = wait.until(ExpectedConditions.presenceOfElementLocated(passBy));
-		searchResult.sendKeys("admin123");
+		passwordElement.sendKeys("admin123");
 	}
 
 	public void enterPassword(String password) {
-		By passBy = By.xpath("//input[@name='password']");
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
-		WebElement searchResult = wait.until(ExpectedConditions.presenceOfElementLocated(passBy));
-		searchResult.sendKeys(password);
+		passwordElement.sendKeys(password);
 	}
 
 	public void clickOn() {
-		By buttonBy = By.xpath("//button[text()=' Login ']");
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
-		WebElement searchResult = wait.until(ExpectedConditions.presenceOfElementLocated(buttonBy));
-		searchResult.click();
+		loginElement.click();
 	}
 
 	public boolean lookForAdmin() {
-		By buttonBy = By.xpath("//span[text()='Admin']");
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
-		WebElement searchResult = wait.until(ExpectedConditions.presenceOfElementLocated(buttonBy));
-		return searchResult != null;
+		return adminPanElement != null;
 	}
 
 	public boolean validateFailure(String message) {
-		By buttonBy = By.xpath("//p[text()='Invalid credentials']");
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
-		WebElement searchResult = wait.until(ExpectedConditions.presenceOfElementLocated(buttonBy));
-		return searchResult.getText().equals(message);
-
+		return invalidMessageElement.getText().equals(message);
 	}
 }

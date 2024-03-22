@@ -25,7 +25,7 @@
       <span class="top-banner-title-font">Test results</span>
       <button id="button" class="button">Switch Retro Theme</button> <!-- button -->
       <br/>
-      <span class="top-banner-font-1">1 suite, 2 failed tests</span>
+      <span class="top-banner-font-1">1 suite</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -39,7 +39,7 @@
         <div class="rounded-window">
           <div class="suite-header light-rounded-window-top">
             <a href="#" panel-name="suite-cucumber_parallel_test" class="navigator-link">
-              <span class="suite-name border-failed">cucumber parallel test</span>
+              <span class="suite-name border-passed">cucumber parallel test</span>
             </a> <!-- navigator-link -->
           </div> <!-- suite-header light-rounded-window-top -->
           <div class="navigator-suite-content">
@@ -92,26 +92,7 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">3 methods, 2 failed,   1 passed</span>
-                  </li>
-                  <li>
-                    <span class="method-list-title failed">Failed methods</span>
-                    <span class="show-or-hide-methods failed">
-                      <a href="#" panel-name="suite-cucumber_parallel_test" class="hide-methods failed suite-cucumber_parallel_test"> (hide)</a> <!-- hide-methods failed suite-cucumber_parallel_test -->
-                      <a href="#" panel-name="suite-cucumber_parallel_test" class="show-methods failed suite-cucumber_parallel_test"> (show)</a> <!-- show-methods failed suite-cucumber_parallel_test -->
-                    </span>
-                    <div class="method-list-content failed suite-cucumber_parallel_test">
-                      <span>
-                        <img src="failed.png" width="3%"/>
-                        <a href="#" panel-name="suite-cucumber_parallel_test" title="org.effigo.bdd.TestRunner" class="method navigator-link" hash-for-method="runScenario(&quot;Failed Login&quot;, &quot;Login testing for OrangeHRM website&quot;)">runScenario("Failed Login", "Login testing for OrangeHRM website")</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img src="failed.png" width="3%"/>
-                        <a href="#" panel-name="suite-cucumber_parallel_test" title="org.effigo.bdd.TestRunner" class="method navigator-link" hash-for-method="runScenario(&quot;Failed Login&quot;, &quot;Login testing for OrangeHRM website&quot;)">runScenario("Failed Login", "Login testing for OrangeHRM website")</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                    </div> <!-- method-list-content failed suite-cucumber_parallel_test -->
+                    <span class="method-stats">3 methods,   3 passed</span>
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -122,7 +103,17 @@
                     <div class="method-list-content passed suite-cucumber_parallel_test">
                       <span>
                         <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-cucumber_parallel_test" title="org.effigo.bdd.TestRunner" class="method navigator-link" hash-for-method="runScenario(&quot;Failed Login&quot;, &quot;Login testing for OrangeHRM website&quot;)">runScenario("Failed Login", "Login testing for OrangeHRM website")</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
                         <a href="#" panel-name="suite-cucumber_parallel_test" title="org.effigo.bdd.TestRunner" class="method navigator-link" hash-for-method="runScenario(&quot;Successful login&quot;, &quot;Login testing for OrangeHRM website&quot;)">runScenario("Successful login", "Login testing for OrangeHRM website")</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-cucumber_parallel_test" title="org.effigo.bdd.TestRunner" class="method navigator-link" hash-for-method="runScenario(&quot;Failed Login&quot;, &quot;Login testing for OrangeHRM website&quot;)">runScenario("Failed Login", "Login testing for OrangeHRM website")</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-cucumber_parallel_test -->
@@ -137,86 +128,6 @@
     <div class="wrapper">
       <div class="main-panel-root">
         <div panel-name="suite-cucumber_parallel_test" class="panel cucumber_parallel_test">
-          <div class="suite-cucumber_parallel_test-class-failed">
-            <div class="main-panel-header rounded-window-top">
-              <img src="failed.png"/>
-              <span class="class-name">org.effigo.bdd.TestRunner</span>
-            </div> <!-- main-panel-header rounded-window-top -->
-            <div class="main-panel-content rounded-window-bottom">
-              <div class="method">
-                <div class="method-content">
-                  <a name="runScenario(&quot;Failed Login&quot;, &quot;Login testing for OrangeHRM website&quot;)">
-                  </a> <!-- runScenario("Failed Login", "Login testing for OrangeHRM website") -->
-                  <span class="method-name">runScenario</span>
-                  <span class="parameters">("Failed Login","Login testing for OrangeHRM website")</span>
-                  <div class="stack-trace">org.openqa.selenium.WebDriverException: Failed to decode response from marionette
-Build info: version: &apos;4.18.1&apos;, revision: &apos;b1d3319b48&apos;
-System info: os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.2&apos;
-Driver info: org.openqa.selenium.firefox.FirefoxDriver
-Command: [25ea8934-e6dc-4251-990b-1684ed82a276, findElement {using=xpath, value=//input[@name=&apos;username&apos;]}]
-Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 123.0.1, moz:accessibilityChecks: false, moz:buildID: 20240304104836, moz:debuggerAddress: 127.0.0.1:44209, moz:geckodriverVersion: 0.34.0, moz:headless: false, moz:platformVersion: 10.0, moz:processID: 2928, moz:profile: C:\Users\Rohit\AppData\Loca..., moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://127.0.0.1:44209/devtoo..., se:cdpVersion: 85.0, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
-Session ID: 25ea8934-e6dc-4251-990b-1684ed82a276
-	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:519)
-	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
-	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:356)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:350)
-	at org.openqa.selenium.support.ui.ExpectedConditions$6.apply(ExpectedConditions.java:171)
-	at org.openqa.selenium.support.ui.ExpectedConditions$6.apply(ExpectedConditions.java:168)
-	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:203)
-	at org.effigo.bdd.pages.LoginPage.enterUsername(LoginPage.java:36)
-	at org.effigo.bdd.stepdefs.LoginPageStepDef.wrongUserCredentials(LoginPageStepDef.java:53)
-	at ✽.Wrong user credentials with username: &quot;test&quot; and password: &quot;laskjfdlka&quot;(file:///C:/Users/Rohit/eclipse-workspace/bdd/src/test/resources/feature/test.feature:12)
-... Removed 5 stack frames
-</div> <!-- stack-trace -->
-                  <em>
-(Runs Cucumber Scenarios)                  </em>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="runScenario(&quot;Failed Login&quot;, &quot;Login testing for OrangeHRM website&quot;)">
-                  </a> <!-- runScenario("Failed Login", "Login testing for OrangeHRM website") -->
-                  <span class="method-name">runScenario</span>
-                  <span class="parameters">("Failed Login","Login testing for OrangeHRM website")</span>
-                  <div class="stack-trace">org.openqa.selenium.WebDriverException: Failed to decode response from marionette
-Build info: version: &apos;4.18.1&apos;, revision: &apos;b1d3319b48&apos;
-System info: os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.2&apos;
-Driver info: org.openqa.selenium.firefox.FirefoxDriver
-Command: [761666b4-a58e-4b44-8d79-0358d976cb39, findElement {using=xpath, value=//input[@name=&apos;username&apos;]}]
-Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 123.0.1, moz:accessibilityChecks: false, moz:buildID: 20240304104836, moz:debuggerAddress: 127.0.0.1:5880, moz:geckodriverVersion: 0.34.0, moz:headless: false, moz:platformVersion: 10.0, moz:processID: 7788, moz:profile: C:\Users\Rohit\AppData\Loca..., moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://127.0.0.1:5880/devtool..., se:cdpVersion: 85.0, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
-Session ID: 761666b4-a58e-4b44-8d79-0358d976cb39
-	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:519)
-	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
-	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:356)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:350)
-	at org.openqa.selenium.support.ui.ExpectedConditions$6.apply(ExpectedConditions.java:171)
-	at org.openqa.selenium.support.ui.ExpectedConditions$6.apply(ExpectedConditions.java:168)
-	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:203)
-	at org.effigo.bdd.pages.LoginPage.enterUsername(LoginPage.java:36)
-	at org.effigo.bdd.stepdefs.LoginPageStepDef.wrongUserCredentials(LoginPageStepDef.java:53)
-	at ✽.Wrong user credentials with username: &quot;rohit&quot; and password: &quot;pass&quot;(file:///C:/Users/Rohit/eclipse-workspace/bdd/src/test/resources/feature/test.feature:12)
-... Removed 5 stack frames
-</div> <!-- stack-trace -->
-                  <em>
-(Runs Cucumber Scenarios)                  </em>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-            </div> <!-- main-panel-content rounded-window-bottom -->
-          </div> <!-- suite-cucumber_parallel_test-class-failed -->
           <div class="suite-cucumber_parallel_test-class-passed">
             <div class="main-panel-header rounded-window-top">
               <img src="passed.png"/>
@@ -225,10 +136,30 @@ Session ID: 761666b4-a58e-4b44-8d79-0358d976cb39
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
+                  <a name="runScenario(&quot;Failed Login&quot;, &quot;Login testing for OrangeHRM website&quot;)">
+                  </a> <!-- runScenario("Failed Login", "Login testing for OrangeHRM website") -->
+                  <span class="method-name">runScenario</span>
+                  <span class="parameters">("Failed Login","Login testing for OrangeHRM website")</span>
+                  <em>
+(Runs Cucumber Scenarios)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
                   <a name="runScenario(&quot;Successful login&quot;, &quot;Login testing for OrangeHRM website&quot;)">
                   </a> <!-- runScenario("Successful login", "Login testing for OrangeHRM website") -->
                   <span class="method-name">runScenario</span>
                   <span class="parameters">("Successful login","Login testing for OrangeHRM website")</span>
+                  <em>
+(Runs Cucumber Scenarios)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="runScenario(&quot;Failed Login&quot;, &quot;Login testing for OrangeHRM website&quot;)">
+                  </a> <!-- runScenario("Failed Login", "Login testing for OrangeHRM website") -->
+                  <span class="method-name">runScenario</span>
+                  <span class="parameters">("Failed Login","Login testing for OrangeHRM website")</span>
                   <em>
 (Runs Cucumber Scenarios)                  </em>
                 </div> <!-- method-content -->
@@ -244,8 +175,8 @@ Session ID: 761666b4-a58e-4b44-8d79-0358d976cb39
             <pre>
 &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
 &lt;!DOCTYPE suite SYSTEM &quot;https://testng.org/testng-1.0.dtd&quot;&gt;
-&lt;suite name=&quot;cucumber parallel test&quot; guice-stage=&quot;DEVELOPMENT&quot; verbose=&quot;0&quot;&gt;
-  &lt;test thread-count=&quot;5&quot; name=&quot;login page test&quot; verbose=&quot;0&quot;&gt;
+&lt;suite name=&quot;cucumber parallel test&quot; guice-stage=&quot;DEVELOPMENT&quot;&gt;
+  &lt;test thread-count=&quot;5&quot; name=&quot;login page test&quot;&gt;
     &lt;classes&gt;
       &lt;class name=&quot;org.effigo.bdd.TestRunner&quot;/&gt;
     &lt;/classes&gt;
@@ -299,20 +230,20 @@ data.addRows(3);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'runScenario')
 data.setCell(0, 2, 'org.effigo.bdd.TestRunner')
-data.setCell(0, 3, 10781);
+data.setCell(0, 3, 61066);
 data.setCell(1, 0, 1)
 data.setCell(1, 1, 'runScenario')
 data.setCell(1, 2, 'org.effigo.bdd.TestRunner')
-data.setCell(1, 3, 8014);
+data.setCell(1, 3, 53532);
 data.setCell(2, 0, 2)
 data.setCell(2, 1, 'runScenario')
 data.setCell(2, 2, 'org.effigo.bdd.TestRunner')
-data.setCell(2, 3, 4377);
+data.setCell(2, 3, 50586);
 window.suiteTableData['cucumber_parallel_test']= { tableData: data, tableDiv: 'times-div-cucumber_parallel_test'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 23 seconds</span>
+              <span class="suite-total-time">Total running time: 2 minutes</span>
               <div id="times-div-cucumber_parallel_test">
               </div> <!-- times-div-cucumber_parallel_test -->
             </div> <!-- times-div -->
@@ -340,28 +271,24 @@ return data;
             <div class="chronological-class">
               <div class="chronological-class-name">org.effigo.bdd.TestRunner</div> <!-- chronological-class-name -->
               <div class="configuration-class before">
-                <span class="method-name">setUpClass(org.testng.TestRunner@43f1bb92)</span>
+                <span class="method-name">setUpClass(org.testng.TestRunner@5a8816cc)</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-class before -->
               <div class="test-method">
                 <span class="method-name">runScenario("Successful login", "Login testing for OrangeHRM website")</span>
-                <span class="method-start">640 ms</span>
+                <span class="method-start">693 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
-                <img src="failed.png">
-                </img>
                 <span class="method-name">runScenario("Failed Login", "Login testing for OrangeHRM website")</span>
-                <span class="method-start">11423 ms</span>
+                <span class="method-start">51283 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
-                <img src="failed.png">
-                </img>
                 <span class="method-name">runScenario("Failed Login", "Login testing for OrangeHRM website")</span>
-                <span class="method-start">19446 ms</span>
+                <span class="method-start">112351 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-class after">
                 <span class="method-name">tearDownClass</span>
-                <span class="method-start">23826 ms</span>
+                <span class="method-start">165889 ms</span>
               </div> <!-- configuration-class after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
