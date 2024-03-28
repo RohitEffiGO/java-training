@@ -92,7 +92,7 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">3 methods,   3 passed</span>
+                    <span class="method-stats">4 methods,   4 passed</span>
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -101,6 +101,11 @@
                       <a href="#" panel-name="suite-cucumber_parallel_test" class="show-methods passed suite-cucumber_parallel_test"> (show)</a> <!-- show-methods passed suite-cucumber_parallel_test -->
                     </span>
                     <div class="method-list-content passed suite-cucumber_parallel_test">
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-cucumber_parallel_test" title="org.effigo.bdd.TestRunner" class="method navigator-link" hash-for-method="runScenario(&quot;Google search&quot;, &quot;Validate google search redirection&quot;)">runScenario("Google search", "Validate google search redirection")</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
                         <a href="#" panel-name="suite-cucumber_parallel_test" title="org.effigo.bdd.TestRunner" class="method navigator-link" hash-for-method="runScenario(&quot;Failed Login&quot;, &quot;Login testing for OrangeHRM website&quot;)">runScenario("Failed Login", "Login testing for OrangeHRM website")</a> <!-- method navigator-link -->
@@ -134,6 +139,16 @@
               <span class="class-name">org.effigo.bdd.TestRunner</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="runScenario(&quot;Google search&quot;, &quot;Validate google search redirection&quot;)">
+                  </a> <!-- runScenario("Google search", "Validate google search redirection") -->
+                  <span class="method-name">runScenario</span>
+                  <span class="parameters">("Google search","Validate google search redirection")</span>
+                  <em>
+(Runs Cucumber Scenarios)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
               <div class="method">
                 <div class="method-content">
                   <a name="runScenario(&quot;Failed Login&quot;, &quot;Login testing for OrangeHRM website&quot;)">
@@ -226,24 +241,28 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(3);
+data.addRows(4);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'runScenario')
 data.setCell(0, 2, 'org.effigo.bdd.TestRunner')
-data.setCell(0, 3, 61066);
+data.setCell(0, 3, 12036);
 data.setCell(1, 0, 1)
 data.setCell(1, 1, 'runScenario')
 data.setCell(1, 2, 'org.effigo.bdd.TestRunner')
-data.setCell(1, 3, 53532);
+data.setCell(1, 3, 11652);
 data.setCell(2, 0, 2)
 data.setCell(2, 1, 'runScenario')
 data.setCell(2, 2, 'org.effigo.bdd.TestRunner')
-data.setCell(2, 3, 50586);
+data.setCell(2, 3, 11422);
+data.setCell(3, 0, 3)
+data.setCell(3, 1, 'runScenario')
+data.setCell(3, 2, 'org.effigo.bdd.TestRunner')
+data.setCell(3, 3, 9845);
 window.suiteTableData['cucumber_parallel_test']= { tableData: data, tableDiv: 'times-div-cucumber_parallel_test'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 2 minutes</span>
+              <span class="suite-total-time">Total running time: 44 seconds</span>
               <div id="times-div-cucumber_parallel_test">
               </div> <!-- times-div-cucumber_parallel_test -->
             </div> <!-- times-div -->
@@ -271,24 +290,28 @@ return data;
             <div class="chronological-class">
               <div class="chronological-class-name">org.effigo.bdd.TestRunner</div> <!-- chronological-class-name -->
               <div class="configuration-class before">
-                <span class="method-name">setUpClass(org.testng.TestRunner@5a8816cc)</span>
+                <span class="method-name">setUpClass(org.testng.TestRunner@7a3269f5)</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-class before -->
               <div class="test-method">
+                <span class="method-name">runScenario("Google search", "Validate google search redirection")</span>
+                <span class="method-start">1017 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
                 <span class="method-name">runScenario("Successful login", "Login testing for OrangeHRM website")</span>
-                <span class="method-start">693 ms</span>
+                <span class="method-start">10866 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">runScenario("Failed Login", "Login testing for OrangeHRM website")</span>
-                <span class="method-start">51283 ms</span>
+                <span class="method-start">22519 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">runScenario("Failed Login", "Login testing for OrangeHRM website")</span>
-                <span class="method-start">112351 ms</span>
+                <span class="method-start">33942 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-class after">
                 <span class="method-name">tearDownClass</span>
-                <span class="method-start">165889 ms</span>
+                <span class="method-start">45982 ms</span>
               </div> <!-- configuration-class after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
