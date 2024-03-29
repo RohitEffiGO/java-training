@@ -19,7 +19,7 @@ public class RedirectStepDef extends RedirectPage {
 	}
 
 	@After
-	public void destory() {
+	public void destroy() {
 		driver.close();
 	}
 }

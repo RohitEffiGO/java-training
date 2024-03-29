@@ -1,2 +1,3 @@
+org\effigo\bdd\stepdefs\RedirectStepDef.class
+org\effigo\bdd\stepdefs\MouseControl.class
 org\effigo\bdd\stepdefs\LoginPageStepDef.class
-org\effigo\bdd\TestRunner.class

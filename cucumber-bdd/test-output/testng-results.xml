@@ -1,31 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="4" passed="4" failed="0" skipped="0">
+<testng-results ignored="0" total="4" passed="0" failed="4" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-03-28T14:40:14 IST" name="cucumber parallel test" finished-at="2024-03-28T14:41:01 IST" duration-ms="47664">
+  <suite started-at="2024-03-29T11:20:14 IST" name="cucumber parallel test" finished-at="2024-03-29T11:21:22 IST" duration-ms="67607">
     <groups>
       <group name="cucumber">
         <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:org.effigo.bdd.TestRunner@385c9627]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
       </group> <!-- cucumber -->
     </groups>
-    <test started-at="2024-03-28T14:40:14 IST" name="login page test" finished-at="2024-03-28T14:41:01 IST" duration-ms="47664">
+    <test started-at="2024-03-29T11:20:14 IST" name="login page test" finished-at="2024-03-29T11:21:22 IST" duration-ms="67607">
       <class name="org.effigo.bdd.TestRunner">
-        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:org.effigo.bdd.TestRunner@385c9627]" started-at="2024-03-28T14:40:14 IST" name="setUpClass" finished-at="2024-03-28T14:40:15 IST" duration-ms="1001" status="PASS">
+        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:org.effigo.bdd.TestRunner@385c9627]" started-at="2024-03-29T11:20:14 IST" name="setUpClass" finished-at="2024-03-29T11:20:15 IST" duration-ms="631" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@7a3269f5]]>
+                <![CDATA[org.testng.TestRunner@68b7d0ef]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpClass -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:org.effigo.bdd.TestRunner@385c9627]" started-at="2024-03-28T14:40:15 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2024-03-28T14:40:24 IST" duration-ms="9845" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:org.effigo.bdd.TestRunner@385c9627]" started-at="2024-03-29T11:20:15 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2024-03-29T11:20:38 IST" duration-ms="23181" status="FAIL">
           <params>
             <param index="0">
               <value>
-                <![CDATA["Google search"]]>
+                <![CDATA["Mouse control"]]>
               </value>
             </param>
             <param index="1">
@@ -34,10 +34,20 @@
               </value>
             </param>
           </params>
+          <exception class="java.lang.NullPointerException">
+            <message>
+              <![CDATA[Cannot invoke "org.openqa.selenium.WebDriver.close()" because "this.driver" is null]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.NullPointerException: Cannot invoke "org.openqa.selenium.WebDriver.close()" because "this.driver" is null
+at org.effigo.bdd.stepdefs.RedirectStepDef.destroy(RedirectStepDef.java:23)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.NullPointerException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:org.effigo.bdd.TestRunner@385c9627]" started-at="2024-03-28T14:40:24 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2024-03-28T14:40:36 IST" duration-ms="11652" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:org.effigo.bdd.TestRunner@385c9627]" started-at="2024-03-29T11:20:38 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2024-03-29T11:20:52 IST" duration-ms="13712" status="FAIL">
           <params>
             <param index="0">
               <value>
@@ -50,10 +60,20 @@
               </value>
             </param>
           </params>
+          <exception class="java.lang.NullPointerException">
+            <message>
+              <![CDATA[Cannot invoke "org.openqa.selenium.WebDriver.close()" because "this.driver" is null]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.NullPointerException: Cannot invoke "org.openqa.selenium.WebDriver.close()" because "this.driver" is null
+at org.effigo.bdd.stepdefs.RedirectStepDef.destroy(RedirectStepDef.java:23)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.NullPointerException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:org.effigo.bdd.TestRunner@385c9627]" started-at="2024-03-28T14:40:36 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2024-03-28T14:40:48 IST" duration-ms="11422" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:org.effigo.bdd.TestRunner@385c9627]" started-at="2024-03-29T11:20:52 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2024-03-29T11:21:07 IST" duration-ms="14728" status="FAIL">
           <params>
             <param index="0">
               <value>
@@ -66,10 +86,20 @@
               </value>
             </param>
           </params>
+          <exception class="java.lang.NullPointerException">
+            <message>
+              <![CDATA[Cannot invoke "org.openqa.selenium.WebDriver.close()" because "this.driver" is null]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.NullPointerException: Cannot invoke "org.openqa.selenium.WebDriver.close()" because "this.driver" is null
+at org.effigo.bdd.stepdefs.RedirectStepDef.destroy(RedirectStepDef.java:23)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.NullPointerException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:org.effigo.bdd.TestRunner@385c9627]" started-at="2024-03-28T14:40:48 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2024-03-28T14:41:00 IST" duration-ms="12036" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:org.effigo.bdd.TestRunner@385c9627]" started-at="2024-03-29T11:21:07 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2024-03-29T11:21:20 IST" duration-ms="13666" status="FAIL">
           <params>
             <param index="0">
               <value>
@@ -82,10 +112,20 @@
               </value>
             </param>
           </params>
+          <exception class="java.lang.NullPointerException">
+            <message>
+              <![CDATA[Cannot invoke "org.openqa.selenium.WebDriver.close()" because "this.driver" is null]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.NullPointerException: Cannot invoke "org.openqa.selenium.WebDriver.close()" because "this.driver" is null
+at org.effigo.bdd.stepdefs.RedirectStepDef.destroy(RedirectStepDef.java:23)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.NullPointerException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:org.effigo.bdd.TestRunner@385c9627]" started-at="2024-03-28T14:41:00 IST" name="tearDownClass" finished-at="2024-03-28T14:41:01 IST" duration-ms="1652" status="PASS">
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:org.effigo.bdd.TestRunner@385c9627]" started-at="2024-03-29T11:21:20 IST" name="tearDownClass" finished-at="2024-03-29T11:21:22 IST" duration-ms="1635" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownClass -->

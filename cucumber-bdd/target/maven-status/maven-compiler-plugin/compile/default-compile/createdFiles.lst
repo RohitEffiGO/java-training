@@ -1,1 +1,3 @@
+org\effigo\bdd\pages\RedirectPage.class
 org\effigo\bdd\pages\LoginPage.class
+org\effigo\bdd\utils\Loader.class

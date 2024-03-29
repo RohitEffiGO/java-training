@@ -1,7 +1,6 @@
 package org.effigo.bdd.pages;
 
 import org.effigo.bdd.utils.Loader;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
@@ -9,8 +8,6 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
 
 public class LoginPage extends Loader {
-	WebDriver driver;
-
 	@FindBy(how = How.XPATH, using = "//input[@name='username']")
 	WebElement usernameElement;
 
@@ -26,8 +23,7 @@ public class LoginPage extends Loader {
 	@FindBy(how = How.XPATH, using = "//p[text()='Invalid credentials']")
 	WebElement invalidMessageElement;
 
-	public LoginPage(WebDriver driver) {
-		this.driver = driver;
+	public LoginPage() {
 		PageFactory.initElements(new AjaxElementLocatorFactory(driver, 30), this);
 	}
 

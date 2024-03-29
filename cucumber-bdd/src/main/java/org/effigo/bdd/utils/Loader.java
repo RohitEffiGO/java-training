@@ -7,18 +7,22 @@ import java.util.Map;
 import java.util.Properties;
 import java.util.logging.Logger;
 
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeSuite;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class Loader {
 	protected Map<String, String> kwargs = new HashMap<>();
 	private static final String RELATIVEPATH = "src/test/resources";
 	private static final Logger logger = Logger.getLogger(Loader.class.getName());
+	protected WebDriver driver;
 
-	@BeforeSuite(alwaysRun = true)
-	@BeforeClass(alwaysRun = true)
-	public void preLoad() {
+	public Loader() {
+		initDriver();
 		loadConfigs();
+	}
+
+	public void initDriver() {
+		this.driver = new FirefoxDriver();
 	}
 
 	public void loadConfigs() {
@@ -33,5 +37,4 @@ public class Loader {
 
 		properties.forEach((key, value) -> kwargs.put(key.toString(), value.toString()));
 	}
-
 }

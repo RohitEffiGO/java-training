@@ -25,7 +25,7 @@
       <span class="top-banner-title-font">Test results</span>
       <button id="button" class="button">Switch Retro Theme</button> <!-- button -->
       <br/>
-      <span class="top-banner-font-1">1 suite</span>
+      <span class="top-banner-font-1">1 suite, 4 failed tests</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -39,7 +39,7 @@
         <div class="rounded-window">
           <div class="suite-header light-rounded-window-top">
             <a href="#" panel-name="suite-cucumber_parallel_test" class="navigator-link">
-              <span class="suite-name border-passed">cucumber parallel test</span>
+              <span class="suite-name border-failed">cucumber parallel test</span>
             </a> <!-- navigator-link -->
           </div> <!-- suite-header light-rounded-window-top -->
           <div class="navigator-suite-content">
@@ -92,36 +92,36 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">4 methods,   4 passed</span>
+                    <span class="method-stats">4 methods, 4 failed,   </span>
                   </li>
                   <li>
-                    <span class="method-list-title passed">Passed methods</span>
-                    <span class="show-or-hide-methods passed">
-                      <a href="#" panel-name="suite-cucumber_parallel_test" class="hide-methods passed suite-cucumber_parallel_test"> (hide)</a> <!-- hide-methods passed suite-cucumber_parallel_test -->
-                      <a href="#" panel-name="suite-cucumber_parallel_test" class="show-methods passed suite-cucumber_parallel_test"> (show)</a> <!-- show-methods passed suite-cucumber_parallel_test -->
+                    <span class="method-list-title failed">Failed methods</span>
+                    <span class="show-or-hide-methods failed">
+                      <a href="#" panel-name="suite-cucumber_parallel_test" class="hide-methods failed suite-cucumber_parallel_test"> (hide)</a> <!-- hide-methods failed suite-cucumber_parallel_test -->
+                      <a href="#" panel-name="suite-cucumber_parallel_test" class="show-methods failed suite-cucumber_parallel_test"> (show)</a> <!-- show-methods failed suite-cucumber_parallel_test -->
                     </span>
-                    <div class="method-list-content passed suite-cucumber_parallel_test">
+                    <div class="method-list-content failed suite-cucumber_parallel_test">
                       <span>
-                        <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-cucumber_parallel_test" title="org.effigo.bdd.TestRunner" class="method navigator-link" hash-for-method="runScenario(&quot;Google search&quot;, &quot;Validate google search redirection&quot;)">runScenario("Google search", "Validate google search redirection")</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img src="passed.png" width="3%"/>
+                        <img src="failed.png" width="3%"/>
                         <a href="#" panel-name="suite-cucumber_parallel_test" title="org.effigo.bdd.TestRunner" class="method navigator-link" hash-for-method="runScenario(&quot;Failed Login&quot;, &quot;Login testing for OrangeHRM website&quot;)">runScenario("Failed Login", "Login testing for OrangeHRM website")</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
-                        <img src="passed.png" width="3%"/>
+                        <img src="failed.png" width="3%"/>
                         <a href="#" panel-name="suite-cucumber_parallel_test" title="org.effigo.bdd.TestRunner" class="method navigator-link" hash-for-method="runScenario(&quot;Successful login&quot;, &quot;Login testing for OrangeHRM website&quot;)">runScenario("Successful login", "Login testing for OrangeHRM website")</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
-                        <img src="passed.png" width="3%"/>
+                        <img src="failed.png" width="3%"/>
                         <a href="#" panel-name="suite-cucumber_parallel_test" title="org.effigo.bdd.TestRunner" class="method navigator-link" hash-for-method="runScenario(&quot;Failed Login&quot;, &quot;Login testing for OrangeHRM website&quot;)">runScenario("Failed Login", "Login testing for OrangeHRM website")</a> <!-- method navigator-link -->
                       </span>
                       <br/>
-                    </div> <!-- method-list-content passed suite-cucumber_parallel_test -->
+                      <span>
+                        <img src="failed.png" width="3%"/>
+                        <a href="#" panel-name="suite-cucumber_parallel_test" title="org.effigo.bdd.TestRunner" class="method navigator-link" hash-for-method="runScenario(&quot;Mouse control&quot;, &quot;Validate google search redirection&quot;)">runScenario("Mouse control", "Validate google search redirection")</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content failed suite-cucumber_parallel_test -->
                   </li>
                 </ul>
               </div> <!-- suite-section-content -->
@@ -133,28 +133,22 @@
     <div class="wrapper">
       <div class="main-panel-root">
         <div panel-name="suite-cucumber_parallel_test" class="panel cucumber_parallel_test">
-          <div class="suite-cucumber_parallel_test-class-passed">
+          <div class="suite-cucumber_parallel_test-class-failed">
             <div class="main-panel-header rounded-window-top">
-              <img src="passed.png"/>
+              <img src="failed.png"/>
               <span class="class-name">org.effigo.bdd.TestRunner</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
-              <div class="method">
-                <div class="method-content">
-                  <a name="runScenario(&quot;Google search&quot;, &quot;Validate google search redirection&quot;)">
-                  </a> <!-- runScenario("Google search", "Validate google search redirection") -->
-                  <span class="method-name">runScenario</span>
-                  <span class="parameters">("Google search","Validate google search redirection")</span>
-                  <em>
-(Runs Cucumber Scenarios)                  </em>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
               <div class="method">
                 <div class="method-content">
                   <a name="runScenario(&quot;Failed Login&quot;, &quot;Login testing for OrangeHRM website&quot;)">
                   </a> <!-- runScenario("Failed Login", "Login testing for OrangeHRM website") -->
                   <span class="method-name">runScenario</span>
                   <span class="parameters">("Failed Login","Login testing for OrangeHRM website")</span>
+                  <div class="stack-trace">java.lang.NullPointerException: Cannot invoke &quot;org.openqa.selenium.WebDriver.close()&quot; because &quot;this.driver&quot; is null
+	at org.effigo.bdd.stepdefs.RedirectStepDef.destroy(RedirectStepDef.java:23)
+
+</div> <!-- stack-trace -->
                   <em>
 (Runs Cucumber Scenarios)                  </em>
                 </div> <!-- method-content -->
@@ -165,6 +159,10 @@
                   </a> <!-- runScenario("Successful login", "Login testing for OrangeHRM website") -->
                   <span class="method-name">runScenario</span>
                   <span class="parameters">("Successful login","Login testing for OrangeHRM website")</span>
+                  <div class="stack-trace">java.lang.NullPointerException: Cannot invoke &quot;org.openqa.selenium.WebDriver.close()&quot; because &quot;this.driver&quot; is null
+	at org.effigo.bdd.stepdefs.RedirectStepDef.destroy(RedirectStepDef.java:23)
+
+</div> <!-- stack-trace -->
                   <em>
 (Runs Cucumber Scenarios)                  </em>
                 </div> <!-- method-content -->
@@ -175,12 +173,30 @@
                   </a> <!-- runScenario("Failed Login", "Login testing for OrangeHRM website") -->
                   <span class="method-name">runScenario</span>
                   <span class="parameters">("Failed Login","Login testing for OrangeHRM website")</span>
+                  <div class="stack-trace">java.lang.NullPointerException: Cannot invoke &quot;org.openqa.selenium.WebDriver.close()&quot; because &quot;this.driver&quot; is null
+	at org.effigo.bdd.stepdefs.RedirectStepDef.destroy(RedirectStepDef.java:23)
+
+</div> <!-- stack-trace -->
+                  <em>
+(Runs Cucumber Scenarios)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="runScenario(&quot;Mouse control&quot;, &quot;Validate google search redirection&quot;)">
+                  </a> <!-- runScenario("Mouse control", "Validate google search redirection") -->
+                  <span class="method-name">runScenario</span>
+                  <span class="parameters">("Mouse control","Validate google search redirection")</span>
+                  <div class="stack-trace">java.lang.NullPointerException: Cannot invoke &quot;org.openqa.selenium.WebDriver.close()&quot; because &quot;this.driver&quot; is null
+	at org.effigo.bdd.stepdefs.RedirectStepDef.destroy(RedirectStepDef.java:23)
+
+</div> <!-- stack-trace -->
                   <em>
 (Runs Cucumber Scenarios)                  </em>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
-          </div> <!-- suite-cucumber_parallel_test-class-passed -->
+          </div> <!-- suite-cucumber_parallel_test-class-failed -->
         </div> <!-- panel cucumber_parallel_test -->
         <div panel-name="test-xml-cucumber_parallel_test" class="panel">
           <div class="main-panel-header rounded-window-top">
@@ -245,24 +261,24 @@ data.addRows(4);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'runScenario')
 data.setCell(0, 2, 'org.effigo.bdd.TestRunner')
-data.setCell(0, 3, 12036);
+data.setCell(0, 3, 23181);
 data.setCell(1, 0, 1)
 data.setCell(1, 1, 'runScenario')
 data.setCell(1, 2, 'org.effigo.bdd.TestRunner')
-data.setCell(1, 3, 11652);
+data.setCell(1, 3, 14728);
 data.setCell(2, 0, 2)
 data.setCell(2, 1, 'runScenario')
 data.setCell(2, 2, 'org.effigo.bdd.TestRunner')
-data.setCell(2, 3, 11422);
+data.setCell(2, 3, 13712);
 data.setCell(3, 0, 3)
 data.setCell(3, 1, 'runScenario')
 data.setCell(3, 2, 'org.effigo.bdd.TestRunner')
-data.setCell(3, 3, 9845);
+data.setCell(3, 3, 13666);
 window.suiteTableData['cucumber_parallel_test']= { tableData: data, tableDiv: 'times-div-cucumber_parallel_test'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 44 seconds</span>
+              <span class="suite-total-time">Total running time: 1 minutes</span>
               <div id="times-div-cucumber_parallel_test">
               </div> <!-- times-div-cucumber_parallel_test -->
             </div> <!-- times-div -->
@@ -290,28 +306,36 @@ return data;
             <div class="chronological-class">
               <div class="chronological-class-name">org.effigo.bdd.TestRunner</div> <!-- chronological-class-name -->
               <div class="configuration-class before">
-                <span class="method-name">setUpClass(org.testng.TestRunner@7a3269f5)</span>
+                <span class="method-name">setUpClass(org.testng.TestRunner@68b7d0ef)</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-class before -->
               <div class="test-method">
-                <span class="method-name">runScenario("Google search", "Validate google search redirection")</span>
-                <span class="method-start">1017 ms</span>
+                <img src="failed.png">
+                </img>
+                <span class="method-name">runScenario("Mouse control", "Validate google search redirection")</span>
+                <span class="method-start">644 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
+                <img src="failed.png">
+                </img>
                 <span class="method-name">runScenario("Successful login", "Login testing for OrangeHRM website")</span>
-                <span class="method-start">10866 ms</span>
+                <span class="method-start">23828 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
+                <img src="failed.png">
+                </img>
                 <span class="method-name">runScenario("Failed Login", "Login testing for OrangeHRM website")</span>
-                <span class="method-start">22519 ms</span>
+                <span class="method-start">37542 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
+                <img src="failed.png">
+                </img>
                 <span class="method-name">runScenario("Failed Login", "Login testing for OrangeHRM website")</span>
-                <span class="method-start">33942 ms</span>
+                <span class="method-start">52272 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-class after">
                 <span class="method-name">tearDownClass</span>
-                <span class="method-start">45982 ms</span>
+                <span class="method-start">65941 ms</span>
               </div> <!-- configuration-class after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
