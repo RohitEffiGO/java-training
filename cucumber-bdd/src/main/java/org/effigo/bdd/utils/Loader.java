@@ -7,22 +7,16 @@ import java.util.Map;
 import java.util.Properties;
 import java.util.logging.Logger;
 
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
+import io.cucumber.java.Before;
 
 public class Loader {
 	protected Map<String, String> kwargs = new HashMap<>();
-	private static final String RELATIVEPATH = "src/test/resources";
+	private static final String RELATIVEPATH = "\\src\\test\\resources\\config.properties";
 	private static final Logger logger = Logger.getLogger(Loader.class.getName());
-	protected WebDriver driver;
 
-	public Loader() {
-		initDriver();
+	@Before
+	public void loadIt() {
 		loadConfigs();
-	}
-
-	public void initDriver() {
-		this.driver = new FirefoxDriver();
 	}
 
 	public void loadConfigs() {

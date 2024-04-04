@@ -14,7 +14,7 @@ public class RedirectPage extends Loader {
 	@FindBy(how = How.XPATH, using = "(//input[@value=\"Google Search\"])[2]")
 	WebElement redirectElement;
 
-	public RedirectPage() {
+	public RedirectPage(WebDriver driver) {
 		PageFactory.initElements(new AjaxElementLocatorFactory(driver, 30), this);
 	}
 
